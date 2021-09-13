@@ -14,6 +14,12 @@ const Landing: React.FC = () => {
       <button type="button" onClick={() => wc.getAccounts()}>
         info
       </button>
+      <button type="button" onClick={() => wc.logOut()}>
+        logOut
+      </button>
+      <button type="button" onClick={() => wc.signMessage('TEST MESSAGE')}>
+        SIGN
+      </button>
     </div>
   );
 };

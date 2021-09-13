@@ -32,7 +32,9 @@ export const connectWalletConfig: IConnectWallet = {
       useProvider: 'infura',
       provider: {
         infura: {
-          infuraID: 'e30174475e4b42bc9daab0cb45748b9c',
+          // eslint-disable-next-line
+          // @ts-ignore
+          infuraId: 'e30174475e4b42bc9daab0cb45748b9c',
         },
       },
     },
