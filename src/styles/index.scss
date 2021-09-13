@@ -1,0 +1,10 @@
+@import './fonts';
+@import './themes';
+
+body {
+  font-family: 'Celias', sans-serif;
+  font-weight: 400;
+
+  background-color: var(--main-bg);
+  color: var(--main-color);
+}

@@ -1,0 +1,4 @@
+@import './mixins/fonts.scss';
+
+@include font-face('Celias', '../assets/fonts/Celias-Regular', 400);
+@include font-face('Celias', '../assets/fonts/Celias-Bold', 700);
