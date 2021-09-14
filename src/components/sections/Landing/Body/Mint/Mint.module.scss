@@ -1,0 +1,32 @@
+@import '../../../../../styles/mixins/flex.scss';
+@import '../../../../../styles/mixins/container.scss';
+
+.block {
+  background: rgba(0, 0, 0, 0.41);
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+
+  &_inner {
+    @include flex(row, center, space-between);
+    @include container;
+  }
+}
+.right {
+  margin-left: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  padding: 25px;
+}
+
+.mint {
+  background-color: #fd7d48;
+  font-family: 'FORT';
+  color: #fff;
+  font-size: 40px;
+  padding: 10px 45px;
+  margin-bottom: 40px;
+}

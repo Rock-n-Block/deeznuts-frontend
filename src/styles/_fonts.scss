@@ -1,4 +1,5 @@
 @import './mixins/fonts.scss';
 
-@include font-face('Celias', '../assets/fonts/Celias-Regular', 400);
-@include font-face('Celias', '../assets/fonts/Celias-Bold', 700);
+@include font-face('MSR', '../assets/fonts/Montserrat-Regular', 400);
+@include font-face('MSR', '../assets/fonts/Montserrat-Bold', 700);
+@include font-face('FORT', '../assets/fonts/Fortnite-Bold', 700);

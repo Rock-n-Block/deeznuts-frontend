@@ -1,0 +1,30 @@
+@import '../../../styles/mixins/container.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  &_inner {
+    @include container;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  .link {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+}

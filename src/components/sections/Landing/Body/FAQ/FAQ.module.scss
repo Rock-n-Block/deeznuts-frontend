@@ -1,0 +1,16 @@
+.section {
+  padding: 120px;
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title {
+  font-family: 'FORT';
+  font-size: 70px;
+  color: #fff;
+  margin-bottom: 45px;
+}
