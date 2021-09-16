@@ -50,20 +50,35 @@ export class WalletConnect {
         return false;
       }
     }
+
+    if (providerName === 'WalletConnect') {
+      const resChain = await connector.connector.request({ method: 'eth_chainId' });
+      if (connectWalletConfig.network.chainID !== parseInt(resChain, 16)) {
+        return false;
+      }
+      return true;
+    }
+
     return true;
   }
 
   public async getAccounts() {
     return new Promise((resolve) => {
-      this.checkEthNetwork().then(() => {
-        this.connectWallet.getAccounts().subscribe(
-          (user: any) => {
-            resolve(user);
-          },
-          (err: any) => {
-            resolve(err);
-          },
-        );
+      this.checkEthNetwork().then((connection) => {
+        if (connection) {
+          this.connectWallet.getAccounts().subscribe(
+            (user: any) => {
+              resolve(user);
+            },
+            (err: any) => {
+              resolve(err);
+            },
+          );
+        } else
+          resolve({
+            code: 404,
+            message: { text: `Wrong network, please choose ${connectWalletConfig.network.name}` },
+          });
       });
     });
   }
@@ -74,16 +89,6 @@ export class WalletConnect {
 
   public currentWeb3(): Web3 {
     return this.connectWallet.currentWeb3();
-  }
-
-  public async signMessage(message: string) {
-    const currentWeb3 = this.currentWeb3();
-    const res = await currentWeb3.eth.personal.sign(
-      message,
-      '0xe34D4eC7C83d9eD6EB25f9c028A913877537DEC4',
-      '',
-    );
-    return res;
   }
 
   public async sendTx(data: { from: string; to: string; value: string }) {

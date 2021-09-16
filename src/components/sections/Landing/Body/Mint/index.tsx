@@ -24,6 +24,10 @@ const Mint: React.FC = () => {
       notify(info.message.text, 'error');
     }
 
+    if (info.code === 404) {
+      notify(info.message.text, 'error');
+    }
+    
     if (info && !info.code) {
       try {
         const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json', {
