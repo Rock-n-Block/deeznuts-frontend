@@ -14,19 +14,21 @@ const Mint: React.FC = () => {
     console.log({ info });
 
     if (info.code === 3) {
-      notify(`${info.message.message} Connect your wallet!`);
+      notify(`${info.message.message} Connect your wallet!`, 'error');
     }
 
     if (info.code === 4) {
-      notify(info.message.text);
+      notify(info.message.text, 'error');
     }
 
     if (info && !info.code) {
       try {
-        const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json');
+        const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json', {
+          method: 'GET',
+        });
         const data = await backendData.json();
         if (data.minted >= data.total_mint_amount) {
-          notify('All nfts are minted!');
+          notify('All nfts are minted!', 'error');
         } else if (data.address) {
           notify('Sending your transaction!');
 
@@ -36,7 +38,7 @@ const Mint: React.FC = () => {
             value: data.amount,
           });
           if (txRes.status) {
-            notify('The transaction has been sent!');
+            notify('The transaction has been sent!', 'success');
           }
         }
       } catch (error: any) {
