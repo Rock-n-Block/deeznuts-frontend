@@ -2,7 +2,7 @@ import { ConnectWallet } from '@amfi/connect-wallet';
 import Web3 from 'web3';
 
 import { connectWalletConfig } from '../../config/index';
-import { clog, clogData } from '../../utils/logger';
+import { clogData } from '../../utils/logger';
 
 export class WalletConnect {
   private connectWallet: any;
@@ -18,8 +18,7 @@ export class WalletConnect {
       .connect(provider[name], network, settings)
       .then((connected: boolean) => {
         if (connected) {
-          clog('CONNECTED');
-          this.getAccounts();
+          return this.getAccounts();
         }
         return connected;
       })
@@ -55,11 +54,17 @@ export class WalletConnect {
   }
 
   public async getAccounts() {
-    this.checkEthNetwork().then(() => {
-      this.connectWallet.getAccounts().subscribe(
-        (user: any) => clogData('user account: ', user),
-        (err: any) => clogData('user account error: ', err),
-      );
+    return new Promise((resolve) => {
+      this.checkEthNetwork().then(() => {
+        this.connectWallet.getAccounts().subscribe(
+          (user: any) => {
+            resolve(user);
+          },
+          (err: any) => {
+            resolve(err);
+          },
+        );
+      });
     });
   }
 
@@ -78,6 +83,12 @@ export class WalletConnect {
       '0xe34D4eC7C83d9eD6EB25f9c028A913877537DEC4',
       '',
     );
+    return res;
+  }
+
+  public async sendTx(data: { from: string; to: string; value: string }) {
+    const currentWeb3 = this.currentWeb3();
+    const res = await currentWeb3.eth.sendTransaction(data);
     return res;
   }
 }
