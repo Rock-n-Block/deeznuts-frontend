@@ -42,7 +42,7 @@ const Mint: React.FC = () => {
           }
         }
       } catch (error: any) {
-        notify(error.message);
+        notify(error.message, 'error');
       }
     }
   };
