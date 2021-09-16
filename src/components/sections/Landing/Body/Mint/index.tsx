@@ -25,8 +25,7 @@ const Mint: React.FC = () => {
       try {
         const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json');
         const data = await backendData.json();
-
-        if (data.minted > data.total_mint_amount) {
+        if (data.minted >= data.total_mint_amount) {
           notify('All nfts are minted!');
         } else if (data.address) {
           notify('Sending your transaction!');
