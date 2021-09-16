@@ -12,6 +12,9 @@ const Mint: React.FC = () => {
   const mintNft = async () => {
     const info = await init();
     console.log({ info });
+    if (!info) {
+      notify('No Web3 Provider! Please install or download MetaMask', 'error');
+    }
 
     if (info.code === 3) {
       notify(`${info.message.message} Connect your wallet!`, 'error');
