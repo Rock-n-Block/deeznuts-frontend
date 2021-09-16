@@ -54,6 +54,7 @@ export class WalletConnect {
     if (providerName === 'WalletConnect') {
       const resChain = await connector.connector.request({ method: 'eth_chainId' });
       if (connectWalletConfig.network.chainID !== parseInt(resChain, 16)) {
+        localStorage.removeItem('walletconnect');
         return false;
       }
       return true;

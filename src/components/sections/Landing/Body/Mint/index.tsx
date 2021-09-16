@@ -27,13 +27,14 @@ const Mint: React.FC = () => {
     if (info.code === 404) {
       notify(info.message.text, 'error');
     }
-    
+
     if (info && !info.code) {
       try {
         const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json', {
           method: 'GET',
         });
         const data = await backendData.json();
+
         if (data.minted >= data.total_mint_amount) {
           notify('All nfts are minted!', 'error');
         } else if (data.address) {
