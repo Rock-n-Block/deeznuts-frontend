@@ -10,19 +10,16 @@ interface ITxData {
 const wcService = new WalletConnect();
 
 interface IContext {
-  init: () => any;
+  init: (wallet: 'MetaMask' | 'WalletConnect') => any;
   sendEth: (data: ITxData) => any;
 }
 
 const Web3Context = createContext({} as IContext);
 
 const WalletConnectProvider: React.FC = ({ children }) => {
-  const init = async () => {
-    const account = await wcService.initWalletConnect('MetaMask');
-    if (!account) {
-      const newAccount = await wcService.initWalletConnect('WalletConnect');
-      return newAccount;
-    }
+  const init = async (wallet: 'MetaMask' | 'WalletConnect') => {
+    console.log({ wallet });
+    const account = await wcService.initWalletConnect(wallet);
     return account;
   };
 
@@ -32,7 +29,7 @@ const WalletConnectProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <Web3Context.Provider value={{ init: () => init(), sendEth: (data: ITxData) => sendEth(data) }}>
+    <Web3Context.Provider value={{ init, sendEth: (data: ITxData) => sendEth(data) }}>
       {children}
     </Web3Context.Provider>
   );

@@ -18,7 +18,7 @@ const RarityNSpec: React.FC = () => {
         </p>
         <p className={s.subtitle}>
           Some traits are ultra-rare, occuring only once. All Deez Nuts Sacks are custom-generated,
-          registered on the Ethereum blockchain, and hosted on IFPS - meaning they can never be
+          registered on the Ethereum blockchain, and hosted on IPFS - meaning they can never be
           altered.
         </p>
         <p className={s.subtitle}>

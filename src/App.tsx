@@ -6,10 +6,13 @@ import Footer from './components/sections/Footer/index';
 
 export const App: React.FC = () => {
   return (
-    <div className="app">
-      <Header />
-      <LandingPage />
-      <Footer />
-    </div>
+    <>
+      <div className="app">
+        <Header />
+        <LandingPage />
+        <Footer />
+      </div>
+      <div className="app-modals" />
+    </>
   );
 };

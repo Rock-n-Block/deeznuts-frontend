@@ -1,6 +1,8 @@
 import { notify } from '../../../../../utils/notify';
 
 import { useWeb3Context } from '../../../../../context/WalletConnect';
+import WalletModal from '../../../../molecules/Modals/WalletModal/index';
+import { useModals } from '../../../../../context/Modal';
 
 import s from './Mint.module.scss';
 
@@ -12,9 +14,9 @@ import nft4 from '../../../../../assets/img/sections/landing/mint/nft-4.png';
 const Mint: React.FC = () => {
   const { init, sendEth } = useWeb3Context();
 
-  const mintNft = async () => {
-    const info = await init();
-    console.log({ info });
+  const mintNft = async (wallet: 'MetaMask' | 'WalletConnect') => {
+    const info = await init(wallet);
+
     if (!info) {
       notify('No Web3 Provider! Please install or download MetaMask', 'error');
     }
@@ -58,11 +60,14 @@ const Mint: React.FC = () => {
     }
   };
 
+  const { setModal } = useModals();
+
   return (
     <section className={s.block}>
+      <WalletModal mintNft={mintNft} />
       <div className={s.block_inner}>
         <div className={s.left}>
-          <button type="button" onClick={() => mintNft()} className={s.mint}>
+          <button type="button" onClick={() => setModal('wallet')} className={s.mint}>
             <div>MINT-A-SACK</div>
           </button>
           <div className={s.subtitle}>Will you hold the greatest ballsack of ALL-TIME?</div>
