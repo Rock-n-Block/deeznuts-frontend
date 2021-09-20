@@ -1,0 +1,77 @@
+.section {
+  text-align: center;
+  padding-bottom: 200px;
+  &_body {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.subtitle {
+  color: #fd7d48;
+  font-weight: 700;
+}
+
+.title {
+  font-family: 'FORT';
+  font-size: 70px;
+  color: #fff;
+  margin-bottom: 90px;
+  text-transform: uppercase;
+}
+
+.nuts {
+  img {
+    max-width: 100%;
+    animation: top-down 5s linear infinite forwards;
+    position: relative;
+  }
+}
+
+@keyframes top-down {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 20px;
+  }
+  50% {
+    top: 0;
+  }
+
+  75% {
+    top: -20px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+.stages {
+  max-width: 500px;
+  padding-left: 60px;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  text-align: left;
+  line-height: 1.5;
+  position: relative;
+  & + & {
+    margin-top: 25px;
+  }
+  &::before {
+    content: '';
+    background: url('../../../../../assets/img/sections/landing/stages/logo25x25.png') 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: -45px;
+    transform: translateY(-50%);
+  }
+}

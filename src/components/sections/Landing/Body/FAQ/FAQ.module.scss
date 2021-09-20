@@ -1,0 +1,48 @@
+.section {
+  padding: 120px;
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title {
+  font-family: 'FORT';
+  font-size: 70px;
+  color: #fff;
+  margin-bottom: 45px;
+}
+
+.faqs {
+  margin-top: 80px;
+}
+
+.item {
+  cursor: pointer;
+  overflow: hidden;
+  padding: 10px 20px;
+  background: #efb340;
+  border-radius: 20px;
+  transition: 0.4s ease;
+  max-width: 800px;
+  & + & {
+    margin-top: 10px;
+  }
+  &_title {
+    font-family: 'FORT';
+    font-size: 40px;
+    height: 50px;
+  }
+  &_subtitle {
+    max-height: 0px;
+    opacity: 0;
+    font-size: 17;
+    transition: 0.4s ease;
+    &.active {
+      opacity: 1;
+      max-height: 500px;
+    }
+  }
+}

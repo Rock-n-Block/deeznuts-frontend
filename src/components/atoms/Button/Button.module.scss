@@ -1,0 +1,13 @@
+.button {
+  padding: 10px 40px;
+  background-color: #fd7d48;
+  font-family: 'FORT';
+  font-size: 40px;
+  text-transform: uppercase;
+  border: 3px solid #ffffff;
+
+  &.transparent {
+    background: transparent;
+    border: 3px solid #fd7d48;
+  }
+}

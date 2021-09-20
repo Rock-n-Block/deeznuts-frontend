@@ -1,10 +1,11 @@
 @import './fonts';
 @import './themes';
+@import './reset';
 
 body {
-  font-family: 'Celias', sans-serif;
+  font-family: 'MSR', sans-serif;
   font-weight: 400;
 
-  background-color: var(--main-bg);
+  background: var(--main-bg);
   color: var(--main-color);
 }

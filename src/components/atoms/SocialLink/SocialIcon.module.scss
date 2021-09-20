@@ -1,0 +1,16 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  background-color: #535258;
+  border-radius: 50%;
+  img {
+    width: 16px;
+    max-height: 18px;
+  }
+  & + & {
+    margin-left: 15px;
+  }
+}
