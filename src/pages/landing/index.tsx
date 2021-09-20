@@ -6,7 +6,7 @@ import LandingBody from '../../components/sections/Landing/Body/index';
 const Landing: React.FC = () => {
   return (
     <>
-      <ToastContainer />
+      <ToastContainer limit={5} />
       <FirstBlock />
       <LandingBody />
     </>

@@ -1,6 +1,10 @@
 import s from './RarityNSpecs.module.scss';
 
 import variable1 from '../../../../../assets/img/sections/landing/variablies/variable_1.png';
+import variable2 from '../../../../../assets/img/sections/landing/variablies/variable_2.png';
+import variable3 from '../../../../../assets/img/sections/landing/variablies/variable_3.png';
+import variable4 from '../../../../../assets/img/sections/landing/variablies/variable_4.png';
+import variable5 from '../../../../../assets/img/sections/landing/variablies/variable_5.png';
 
 const RarityNSpec: React.FC = () => {
   return (
@@ -35,25 +39,25 @@ const RarityNSpec: React.FC = () => {
           </div>
           <div className={s.right_variable}>
             <div className={s.right_variable__icon}>
-              <img src={variable1} alt="variable1" />
+              <img src={variable2} alt="variable2" />
             </div>
             <div className={s.right_variable__text}>accessories</div>
           </div>
           <div className={s.right_variable}>
             <div className={s.right_variable__icon}>
-              <img src={variable1} alt="variable1" />
+              <img src={variable3} alt="variable3" />
             </div>
             <div className={s.right_variable__text}>sack hats</div>
           </div>
           <div className={s.right_variable}>
             <div className={s.right_variable__icon}>
-              <img src={variable1} alt="variable1" />
+              <img src={variable4} alt="variable4" />
             </div>
             <div className={s.right_variable__text}>wings</div>
           </div>
           <div className={s.right_variable}>
             <div className={s.right_variable__icon}>
-              <img src={variable1} alt="variable1" />
+              <img src={variable5} alt="variable5" />
             </div>
             <div className={s.right_variable__text}>backgrounds</div>
           </div>
