@@ -9,3 +9,8 @@ body {
   background: var(--main-bg);
   color: var(--main-color);
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}

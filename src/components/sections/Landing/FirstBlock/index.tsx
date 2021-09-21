@@ -10,7 +10,7 @@ const FirstBlock: React.FC = () => {
           <img src={wings} alt="wings" />
         </div>
         <div className={s.right}>
-          <div className={s.title}>DEEZNUTS NFTs</div>
+          <div className={`${s.title}`}>DEEZNUTS NFTs</div>
           <div className={s.subtitle}>
             Join this ultra-exclusive NFT project featuring not only authentic art, but get HUGE
             perks along the way!
