@@ -76,7 +76,7 @@ const FAQ: React.FC = () => {
     <section className={s.section}>
       <div className={s.section_inner}>
         <div className={s.title}>QUESTIONS? WE GOT THE ANSWERS!</div>
-        <Button transparent title="Contact us" />
+        <Button href="https://discord.com/invite/deeznutsnfts" transparent title="Contact us" />
         <div className={s.faqs}>
           {FaqData.map((data) => (
             <FAQItem key={data.id} {...data} />

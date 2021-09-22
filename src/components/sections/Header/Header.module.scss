@@ -6,6 +6,11 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+  max-width: 1130px;
+  padding: 0 15px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
   &_inner {
     @include container;
     padding-top: 25px;
@@ -20,6 +25,7 @@
 
   @include b(extramobile) {
     position: relative;
+    padding: 0;
   }
 }
 

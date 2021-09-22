@@ -22,7 +22,7 @@ const RarityNSpec: React.FC = () => {
         </p>
         <p className={s.subtitle}>
           Each Deez Nuts NFTs can be utilised in our upcoming game “Flappy Sack” to be released Q4
-          2021 and those who receive a LEGENDARY DEEZ NUTS NFT will join the OG’s on an ALL
+          2021 and those who receive a LEGENDARY DEEZ NUTS NFT will join the OG’s on an ALL{' '}
           <span>INCLUSIVE Bucketlist Vacation to Bali</span> in 2022 and celebrate with A-List
           celebrities and Influencers valued up to $5000 per person.
         </p>

@@ -9,8 +9,8 @@ import MintModal, { IMintModalProps } from '../../../molecules/Modals/MintModal/
 import s from './FirstBlockPresale.module.scss';
 
 import devil from '../../../../assets/img/sections/landing/first-block-presale/devil-nft.png';
-// import light from '../../../../assets/img/sections/landing/first-block-presale/lightning-nft.png';
-// import cosmo from '../../../../assets/img/sections/landing/first-block-presale/cosmo-nft.png';
+import light from '../../../../assets/img/sections/landing/first-block-presale/lightning-nft.png';
+import cosmo from '../../../../assets/img/sections/landing/first-block-presale/cosmo-nft.png';
 
 function timeToDate(date: string) {
   let secondsToDate = Math.round((+new Date(date) - +new Date(Date.now())) / 1000);
@@ -63,7 +63,7 @@ const FirstBlockPresale: React.FC = () => {
 
       if (data.status === 'SUCCESS') {
         const hashesFromLs = localStorage.getItem('txHashes');
-        const hashes = hashesFromLs ? JSON.parse(hashesFromLs) : [];
+        const hashes = hashesFromLs ? await JSON.parse(hashesFromLs) : [];
 
         if (hashes.includes(txHash)) {
           setModalsData((prevState) => [
@@ -78,15 +78,6 @@ const FirstBlockPresale: React.FC = () => {
 
           setModal(txHash);
         }
-      }
-
-      if (data.status !== 'SUCCESS') {
-        notify(
-          `Tx ${txHash.slice(0, 5)}...${txHash.slice(-5)}: ${data.status
-            .replaceAll('_', ' ')
-            .toLowerCase()}`,
-          'info',
-        );
       }
     },
     [setModal],
@@ -184,10 +175,17 @@ const FirstBlockPresale: React.FC = () => {
           <div className={s.devil}>
             <img src={devil} alt="devil" />
           </div>
+          <div className={s.light}>
+            <img src={light} alt="light" />
+          </div>
+          <div className={s.cosmo}>
+            <img src={cosmo} alt="cosmo" />
+          </div>
         </div>
         <div className={s.right}>
           <div className={s.title}>
-            Presale <br /> Launch <br /> <span>starts in</span>
+            {/* Presale <br /> Launch <br /> <span>starts in</span> */}
+            Presale Launch <span>starts in</span>
             <span className={s.white}>…</span>
           </div>
           <div className={s.date}>

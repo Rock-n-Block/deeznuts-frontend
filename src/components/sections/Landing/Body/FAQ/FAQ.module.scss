@@ -49,9 +49,9 @@
   }
   &_title {
     font-family: 'FORT';
-    font-size: 40px;
+    font-size: 45px;
     @include b(mobile) {
-      font-size: 35px;
+      font-size: 30px;
     }
   }
   &_subtitle {

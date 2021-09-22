@@ -44,10 +44,10 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
             className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}
           >
             <img
-              src={img}
+              src={nftPlaceholder}
               alt="img-nft"
-              onError={(e) => {
-                e.currentTarget.src = nftPlaceholder;
+              onLoad={(e) => {
+                e.currentTarget.src = img;
               }}
             />
             <div className={s.img_bg} />
@@ -77,7 +77,14 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
             <div className={s.discord_icon}>
               <img src={discrod} alt="discrod" />
             </div>
-            <div className={s.discord_link}>discord.gg/NJNMRTEsgZ</div>
+            <a
+              href="https://discord.com/invite/deeznutsnfts"
+              rel="noreferrer"
+              target="_blank"
+              className={s.discord_link}
+            >
+              discord/deeznutsnfts
+            </a>
           </div>
         </div>
       </div>
