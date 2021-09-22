@@ -8,10 +8,12 @@
   align-items: center;
   grid-template-columns: 1fr 1fr;
   padding-bottom: 100px;
+  max-width: 1130px;
+  padding: 0 15px;
+  margin: 0 auto;
   @include b(mobile) {
     flex-wrap: wrap-reverse;
     justify-content: center;
-    padding: 0;
     padding-bottom: 50px;
   }
 }

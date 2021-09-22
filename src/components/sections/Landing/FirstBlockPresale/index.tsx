@@ -1,15 +1,21 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useWeb3Context } from '../../../../context/WalletConnect';
-import { notify } from '../../../../utils/notify';
 
+import { useWeb3Context } from '../../../../context/WalletConnect';
+import { useModals } from '../../../../context/Modal';
+import { notify } from '../../../../utils/notify';
 import WalletModal from '../../../molecules/Modals/WalletModal/index';
 import MintModal, { IMintModalProps } from '../../../molecules/Modals/MintModal/index';
 
 import s from './FirstBlockPresale.module.scss';
-import { useModals } from '../../../../context/Modal';
+
+import devil from '../../../../assets/img/sections/landing/first-block-presale/devil-nft.png';
+// import light from '../../../../assets/img/sections/landing/first-block-presale/lightning-nft.png';
+// import cosmo from '../../../../assets/img/sections/landing/first-block-presale/cosmo-nft.png';
 
 function timeToDate(date: string) {
   let secondsToDate = Math.round((+new Date(date) - +new Date(Date.now())) / 1000);
+
+  if (secondsToDate < 0) return { days: 0, hours: 0, mins: 0, sec: 0 };
 
   const days = Math.floor(secondsToDate / 3600 / 24);
   secondsToDate -= days * 24 * 3600;
@@ -25,15 +31,19 @@ function timeToDate(date: string) {
   return { days, hours, mins, sec };
 }
 
-const PRESALE_DATE_END = '2021-09-27 00:00:00';
+const PRESALE_DATE_END = '2021-09-24T21:00:00';
 const TIME_FOR_UPDATE = 20000;
 
 const FirstBlockPresale: React.FC = () => {
-  const [timeBeforeEnd, setTimeBeforeEnd] = useState({ days: 4, hours: 12, mins: 55, sec: 42 });
+  const [timeBeforeEnd, setTimeBeforeEnd] = useState(timeToDate(PRESALE_DATE_END));
 
   useEffect(() => {
     const timerId = setInterval(() => {
-      setTimeBeforeEnd(timeToDate(PRESALE_DATE_END));
+      const time = timeToDate(PRESALE_DATE_END);
+      setTimeBeforeEnd(time);
+      if (Object.values(time).every((el) => el === 0)) {
+        clearInterval(timerId);
+      }
     }, 1000);
 
     return () => {
@@ -52,17 +62,22 @@ const FirstBlockPresale: React.FC = () => {
       const data = await headers.json();
 
       if (data.status === 'SUCCESS') {
-        setModalsData((prevState) => [
-          ...prevState.filter((modal) => modal.txHash !== txHash),
-          {
-            type: data.rarity === 'common' ? 'COMMON' : 'LEGENDARY',
-            img: data.image,
-            txHash,
-            id: data.id,
-          },
-        ]);
+        const hashesFromLs = localStorage.getItem('txHashes');
+        const hashes = hashesFromLs ? JSON.parse(hashesFromLs) : [];
 
-        setModal(txHash);
+        if (hashes.includes(txHash)) {
+          setModalsData((prevState) => [
+            ...prevState.filter((modal) => modal.txHash !== txHash),
+            {
+              type: data.rarity === 'common' ? 'COMMON' : 'LEGENDARY',
+              img: data.image,
+              txHash,
+              id: data.id,
+            },
+          ]);
+
+          setModal(txHash);
+        }
       }
 
       if (data.status !== 'SUCCESS') {
@@ -141,12 +156,11 @@ const FirstBlockPresale: React.FC = () => {
     if (hashes.length > 0) {
       hashes.forEach((txHash: string) => {
         getInfoAboutTx(txHash);
-        // console.log(txHash);
       });
+
       setInterval(() => {
         hashes.forEach((txHash: string) => {
           getInfoAboutTx(txHash);
-          //   console.log(txHash);
         });
       }, TIME_FOR_UPDATE);
     }
@@ -166,28 +180,38 @@ const FirstBlockPresale: React.FC = () => {
       ))}
 
       <div className={s.block_inner}>
-        <div className={`${s.title}`}>Days before end</div>
-        <div className={s.date}>
-          <div className={s.date_item}>
-            <div className={s.date_item__number}>{timeBeforeEnd.days}</div>
-            <div className={s.date_item__subtitle}>Days</div>
-          </div>
-          <div className={s.date_item}>
-            <div className={s.date_item__number}>{timeBeforeEnd.hours}</div>
-            <div className={s.date_item__subtitle}>Hours</div>
-          </div>
-          <div className={s.date_item}>
-            <div className={s.date_item__number}>{timeBeforeEnd.mins}</div>
-            <div className={s.date_item__subtitle}>Min</div>
-          </div>
-          <div className={s.date_item}>
-            <div className={s.date_item__number}>{timeBeforeEnd.sec}</div>
-            <div className={s.date_item__subtitle}>Sec</div>
+        <div className={s.left}>
+          <div className={s.devil}>
+            <img src={devil} alt="devil" />
           </div>
         </div>
-        <button type="button" onClick={() => setModal('wallet')} className={s.mint}>
-          mint presale
-        </button>
+        <div className={s.right}>
+          <div className={s.title}>
+            Presale <br /> Launch <br /> <span>starts in</span>
+            <span className={s.white}>…</span>
+          </div>
+          <div className={s.date}>
+            <div className={s.date_item}>
+              <div className={s.date_item__number}>{timeBeforeEnd.days}</div>
+              <div className={s.date_item__subtitle}>Days</div>
+            </div>
+            <div className={s.date_item}>
+              <div className={s.date_item__number}>{timeBeforeEnd.hours}</div>
+              <div className={s.date_item__subtitle}>Hours</div>
+            </div>
+            <div className={s.date_item}>
+              <div className={s.date_item__number}>{timeBeforeEnd.mins}</div>
+              <div className={s.date_item__subtitle}>Min</div>
+            </div>
+            <div className={s.date_item}>
+              <div className={s.date_item__number}>{timeBeforeEnd.sec}</div>
+              <div className={s.date_item__subtitle}>Sec</div>
+            </div>
+          </div>
+          <button type="button" onClick={() => setModal('wallet')} className={s.mint}>
+            mint presale
+          </button>
+        </div>
       </div>
     </section>
   );

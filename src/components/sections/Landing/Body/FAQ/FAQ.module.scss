@@ -39,7 +39,7 @@
   padding: 20px 30px;
   background: #efb340;
   border-radius: 20px;
-  transition: 0.4s ease;
+  transition: 0.4s linear;
   max-width: 1000px;
   @include b(mobile) {
     max-width: 100%;
