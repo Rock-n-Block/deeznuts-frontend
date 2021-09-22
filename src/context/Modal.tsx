@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-type ModalsTypes = 'wallet' | 'mintmodal';
+type ModalsTypes = string;
 
 interface IModalsContext {
-  modals: Array<ModalsTypes>;
-  setModal: (name: ModalsTypes) => void;
-  closeModal: (name: ModalsTypes) => void;
+  modals: Array<string>;
+  setModal: (name: string) => void;
+  closeModal: (name: string) => void;
 }
 
 const ModalsContext = React.createContext({} as IModalsContext);
@@ -13,14 +13,9 @@ const ModalsContext = React.createContext({} as IModalsContext);
 const ModalsProvider: React.FC = ({ children }) => {
   const [modals, setModals] = useState<Array<ModalsTypes>>([]);
 
-  const setModal = useCallback(
-    (name: ModalsTypes) => {
-      const newModals = [...modals, name];
-      setModals(newModals);
-    },
-    // eslint-disable-next-line
-    [],
-  );
+  const setModal = useCallback((name: ModalsTypes) => {
+    setModals((prevState) => [...prevState.filter((modalName) => modalName !== name), name]);
+  }, []);
 
   const closeModal = (name: ModalsTypes) => {
     const newModals = modals.filter((modal) => modal !== name);

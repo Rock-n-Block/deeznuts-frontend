@@ -1,0 +1,93 @@
+@import '../../../../styles/mixins/media.scss';
+
+.block {
+  background: url('../../../../assets/img/sections/landing/first-block-presale/treasers-bg.png') 0 0
+      no-repeat,
+    #7876b1;
+  background-size: 100% 100%;
+  color: #333333;
+  height: calc(100vh + 114px);
+  @include b(tablet) {
+    height: 100%;
+  }
+
+  @include b(extramobile) {
+    height: 278px;
+  }
+}
+
+.block_inner {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  @include b(mobile) {
+    height: 100%;
+    padding: 150px 15px;
+  }
+
+  @include b(extramobile) {
+    height: 100%;
+    justify-content: flex-start;
+    padding: 50px 15px;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 60px;
+  font-family: 'FORT';
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.date {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 42px;
+  &_item {
+    background: #000000;
+    border-radius: 12px;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__number {
+      font-weight: 600;
+      font-size: 90px;
+      color: #fd7d48;
+      margin-bottom: 0px;
+      font-family: 'FORT';
+      max-height: 80px;
+    }
+    &__subtitle {
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+      letter-spacing: 0.035em;
+      color: #ffffff;
+    }
+  }
+}
+
+.mint {
+  text-transform: uppercase;
+  font-family: 'FORT';
+  background: #fd7d48;
+  border: 3px solid #ffffff;
+  padding: 20px 50px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+}

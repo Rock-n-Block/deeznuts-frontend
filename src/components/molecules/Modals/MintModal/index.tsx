@@ -1,36 +1,57 @@
 import ModalWrapper from '../Modal';
 import { useModals } from '../../../../context/Modal';
+import { open_sea_link } from '../../../../config/index';
 
 import s from './MintModal.module.scss';
 
 import discrod from '../../../../assets/img/icons/discord-blue.svg';
+import nftPlaceholder from '../../../../assets/img/nft-placeholder.png';
 
 export interface IMintModalProps {
   type: 'COMMON' | 'LEGENDARY';
   img: string;
   txHash: string;
+  id: number;
 }
 
-const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash }) => {
+const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
   const { modals, closeModal } = useModals();
 
   const handleClose = () => {
-    closeModal('mintmodal');
-    console.log(txHash);
+    closeModal(txHash);
+    const txsFromLs = localStorage.getItem('txHashes');
+    const txs: Array<string> = txsFromLs ? JSON.parse(txsFromLs) : [];
+
+    localStorage.setItem('txHashes', JSON.stringify(txs.filter((tx) => tx !== txHash)));
   };
 
+  if (id === undefined) {
+    return <></>;
+  }
+
   return (
-    <ModalWrapper close={handleClose} isActive={modals.includes('mintmodal')}>
+    <ModalWrapper close={handleClose} isActive={modals.includes(txHash)}>
       <div className={s.modal}>
         <div className={s.title}>
           You&apos;ve minted a <br /> {type === 'LEGENDARY' ? <span>{type}</span> : type} DEEZ NUTS
           NFT!
         </div>
         <div className="center">
-          <div className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}>
-            <img src={img} alt="img-nft" />
+          <a
+            href={`${open_sea_link}${id - 1}`}
+            target="_blank"
+            rel="noreferrer"
+            className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}
+          >
+            <img
+              src={img}
+              alt="img-nft"
+              onError={(e) => {
+                e.currentTarget.src = nftPlaceholder;
+              }}
+            />
             <div className={s.img_bg} />
-          </div>
+          </a>
         </div>
         {type === 'LEGENDARY' ? (
           <>
