@@ -1,6 +1,6 @@
 import ModalWrapper from '../Modal';
 import { useModals } from '../../../../context/Modal';
-import { open_sea_link } from '../../../../config/index';
+// import { open_sea_link } from '../../../../config/index';
 
 import s from './MintModal.module.scss';
 
@@ -15,7 +15,7 @@ export interface IMintModalProps {
 }
 
 const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
-  const { modals, closeModal } = useModals();
+  const { modals, closeModal, contractId } = useModals();
 
   const handleClose = () => {
     closeModal(txHash);
@@ -38,9 +38,9 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
         </div>
         <div className="center">
           <a
-            href={`${open_sea_link}${id - 1}`}
             target="_blank"
             rel="noreferrer"
+            href={`https://testnets.opensea.io/assets/${contractId}/${id - 1}`}
             className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}
           >
             <img

@@ -58,7 +58,7 @@ const FirstBlockPresale: React.FC = () => {
 
   const getInfoAboutTx = useCallback(
     async (txHash: string) => {
-      const headers = await fetch(`https://deeznuts.rocknblock.io/api/v1/payments/${txHash}`);
+      const headers = await fetch(`https://deeznuts.rocknblock.io/api/v1/payments/${txHash}/`);
       const data = await headers.json();
 
       if (data.status === 'SUCCESS') {
@@ -104,9 +104,7 @@ const FirstBlockPresale: React.FC = () => {
 
     if (info && !info.code) {
       try {
-        const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json', {
-          method: 'GET',
-        });
+        const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json');
         const data = await backendData.json();
 
         if (data.minted >= data.total_mint_amount) {
@@ -127,6 +125,10 @@ const FirstBlockPresale: React.FC = () => {
             localStorage.setItem('txHashes', JSON.stringify(hashes));
 
             notify('The transaction has been sent!', 'success');
+            notify(
+              'Please stay on the site, your token will be generated within a couple of minutes!',
+              'success',
+            );
 
             setInterval(() => {
               hashes.forEach((txHash: string) => {

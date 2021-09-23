@@ -3,6 +3,13 @@
 .section {
   text-align: center;
   padding-bottom: 200px;
+  max-width: 1130px;
+  padding: 0 15px;
+  margin: 0 auto;
+  padding-top: 105px;
+  @include b(mobile) {
+    padding-top: 0px;
+  }
   @include b(tablet) {
     padding-bottom: 50px;
   }
