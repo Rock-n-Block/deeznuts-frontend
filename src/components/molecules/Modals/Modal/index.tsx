@@ -32,7 +32,7 @@ const ModalWrapper: React.FC<IModalWrapperProps> = ({ children, isActive, close 
   return ReactDOM.createPortal(
     <>
       <section className={s.modal}>
-        <div className={s.modal_inner}>
+        <div className={`${s.modal_inner} grey-scroll`}>
           <button type="button" onClick={() => close()} className={s.cross}>
             <img src={cross} alt="cross" />
           </button>

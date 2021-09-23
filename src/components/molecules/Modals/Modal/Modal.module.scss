@@ -20,6 +20,9 @@
     background-color: #1c1c1c;
     padding: 10px;
     border-radius: 12px;
+    max-height: 90vh;
+    max-width: 90vw;
+    overflow: auto;
   }
 }
 
