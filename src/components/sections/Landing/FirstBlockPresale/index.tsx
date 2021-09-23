@@ -36,6 +36,7 @@ const TIME_FOR_UPDATE = 20000;
 
 const FirstBlockPresale: React.FC = () => {
   const [timeBeforeEnd, setTimeBeforeEnd] = useState(timeToDate(PRESALE_DATE_END));
+  const [lastTimerId, setLastTimerId] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -124,6 +125,9 @@ const FirstBlockPresale: React.FC = () => {
             hashes.push(txRes.transactionHash);
 
             localStorage.setItem('txHashes', JSON.stringify(hashes));
+            if (lastTimerId) {
+              clearInterval(lastTimerId);
+            }
 
             notify('The transaction has been sent!', 'success');
             notify(
@@ -131,11 +135,12 @@ const FirstBlockPresale: React.FC = () => {
               'success',
             );
 
-            setInterval(() => {
+            const timerId = setInterval(() => {
               hashes.forEach((txHash: string) => {
                 getInfoAboutTx(txHash);
               });
             }, TIME_FOR_UPDATE);
+            setLastTimerId(timerId);
           }
         }
       } catch (error: any) {
