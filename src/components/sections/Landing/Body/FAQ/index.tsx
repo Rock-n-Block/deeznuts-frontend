@@ -73,7 +73,7 @@ const FaqData = [
 
 const FAQ: React.FC = () => {
   return (
-    <section className={s.section}>
+    <section className={s.section} id="faq">
       <div className={s.section_inner}>
         <div className={s.title}>QUESTIONS? WE GOT THE ANSWERS!</div>
         <Button href="https://discord.com/invite/deeznutsnfts" transparent title="Contact us" />

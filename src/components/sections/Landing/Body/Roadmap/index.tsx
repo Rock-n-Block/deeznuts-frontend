@@ -4,7 +4,7 @@ import deeznut from '../../../../../assets/img/sections/landing/stages/deeznut.p
 
 const Roadmap: React.FC = () => {
   return (
-    <section className={s.section}>
+    <section className={s.section} id="roadmap">
       <div className={s.nuts_mob}>
         <img src={deeznut} alt="deeznut" />
       </div>

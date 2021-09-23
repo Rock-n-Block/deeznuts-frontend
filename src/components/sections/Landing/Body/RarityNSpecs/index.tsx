@@ -8,7 +8,7 @@ import variable5 from '../../../../../assets/img/sections/landing/variablies/var
 
 const RarityNSpec: React.FC = () => {
   return (
-    <section className={s.section}>
+    <section id="about" className={s.section}>
       <div className={s.left}>
         <div className={s.title}>Rarity & Specs</div>
         <p className={s.subtitle}>

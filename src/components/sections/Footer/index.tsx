@@ -6,11 +6,14 @@ const Footer: React.FC = () => {
   return (
     <footer className={s.footer}>
       <div className={s.icons}>
-        <SocialIcon name="twitter" link="/" classname={s.orange} />
-        <SocialIcon name="insta" link="/" classname={s.orange} />
-        <SocialIcon name="discord" link="/" classname={s.orange} />
-        <SocialIcon name="facebook" link="/" classname={s.orange} />
-        <SocialIcon name="telegram" link="/" classname={s.orange} />
+        <SocialIcon classname={s.orange} name="twitter" link="https://twitter.com/deeznuts" />
+        <SocialIcon classname={s.orange} name="insta" link="https://www.instagram.com/deeznuts" />
+        <SocialIcon
+          classname={s.orange}
+          name="discord"
+          link="https://discord.com/invite/deeznutsnfts"
+        />
+        <SocialIcon classname={s.orange} name="telegram" link="https://t.me/Deeznutscoin" />
       </div>
       <div className={s.subtitle}>© Copyright</div>
     </footer>
