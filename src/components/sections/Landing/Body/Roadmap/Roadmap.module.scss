@@ -98,6 +98,7 @@
   text-align: left;
   line-height: 1.5;
   position: relative;
+  transition-delay: 0.5s !important;
   & + & {
     margin-top: 25px;
   }

@@ -197,12 +197,12 @@ const FirstBlockPresale: React.FC = () => {
           </div>
         </div>
         <div className={s.right}>
-          <div className={s.title}>
+          <div className={`${s.title} anim`}>
             {/* Presale <br /> Launch <br /> <span>starts in</span> */}
             Presale Launch <span>starts in</span>
             <span className={s.white}>…</span>
           </div>
-          <div className={s.date}>
+          <div className={`${s.date} anim`}>
             <div className={s.date_item}>
               <div className={s.date_item__number}>{timeBeforeEnd.days}</div>
               <div className={s.date_item__subtitle}>Days</div>
@@ -220,7 +220,7 @@ const FirstBlockPresale: React.FC = () => {
               <div className={s.date_item__subtitle}>Sec</div>
             </div>
           </div>
-          <button type="button" onClick={() => setModal('wallet')} className={s.mint}>
+          <button type="button" onClick={() => setModal('wallet')} className={`${s.mint} anim`}>
             mint presale
           </button>
         </div>

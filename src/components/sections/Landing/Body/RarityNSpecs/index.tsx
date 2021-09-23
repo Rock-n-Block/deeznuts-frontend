@@ -10,24 +10,24 @@ const RarityNSpec: React.FC = () => {
   return (
     <section id="about" className={s.section}>
       <div className={s.left}>
-        <div className={s.title}>Rarity & Specs</div>
-        <p className={s.subtitle}>
+        <div className={`${s.title} anim`}>Rarity & Specs</div>
+        <p className={`${s.subtitle} anim`}>
           Deez Nuts NFTs are a collection of <span>10,000 uniquely generated</span> pixelated ball
           sack NFTs created from 20 unique themes & 5 dynamic traits.
         </p>
-        <p className={s.subtitle}>
+        <p className={`${s.subtitle} anim`}>
           Some traits are <span>LEGENDARY</span>, occuring only once. All Deez Nuts Sacks are
           custom-generated, registered on the Ethereum blockchain, and hosted on IPFS - meaning they
           can never be altered.
         </p>
-        <p className={s.subtitle}>
+        <p className={`${s.subtitle} anim`}>
           Each Deez Nuts NFTs can be utilised in our upcoming game “Flappy Sack” to be released Q4
           2021 and those who receive a LEGENDARY DEEZ NUTS NFT will join the OG’s on an ALL{' '}
           <span>INCLUSIVE Bucketlist Vacation to Bali</span> in 2022 and celebrate with A-List
           celebrities and Influencers valued up to $5000 per person.
         </p>
       </div>
-      <div className={s.right}>
+      <div className={`${s.right} anim`}>
         <div className={s.right_title}>
           <span>5</span> sacktacular variables
         </div>
