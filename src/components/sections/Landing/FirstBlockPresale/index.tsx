@@ -117,6 +117,7 @@ const FirstBlockPresale: React.FC = () => {
             to: data.address,
             value: data.amount,
           });
+
           if (txRes.status) {
             const hashesFromLS = localStorage.getItem('txHashes');
             const hashes = hashesFromLS ? JSON.parse(hashesFromLS) : [];
@@ -139,6 +140,7 @@ const FirstBlockPresale: React.FC = () => {
         }
       } catch (error: any) {
         notify(error.message, 'error');
+        console.error('METAMASK ERROR', error);
       }
     }
   };
