@@ -32,7 +32,7 @@ function timeToDate(date: string) {
   return { days, hours, mins, sec };
 }
 
-const PRESALE_DATE_END = '2021-09-24T21:00:00';
+const PRESALE_DATE_END = '2021-09-19T21:00:00';
 const TIME_FOR_UPDATE = 20000;
 
 const FirstBlockPresale: React.FC = () => {
