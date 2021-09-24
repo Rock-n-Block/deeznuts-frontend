@@ -1,6 +1,6 @@
 import { IChainConfig, IConnectWallet } from '../types/index';
 
-export const is_production = false;
+export const is_production = true;
 
 export const show_logs = true;
 
@@ -10,7 +10,7 @@ export const open_sea_link =
   'https://testnets.opensea.io/assets/0x76f13dd7c89ff425eacc037ead9cd284890475b8/';
 
 export const backendUrl = is_production
-  ? 'http://3.128.179.156/api/v1/'
+  ? 'https://deeznuts.sale/api/v1/'
   : 'https://deeznuts.rocknblock.io/api/v1/';
 
 export const chain: IChainConfig = {
