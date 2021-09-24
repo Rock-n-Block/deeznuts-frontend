@@ -18,7 +18,6 @@ const Web3Context = createContext({} as IContext);
 
 const WalletConnectProvider: React.FC = ({ children }) => {
   const init = async (wallet: 'MetaMask' | 'WalletConnect') => {
-    console.log({ wallet });
     const account = await wcService.initWalletConnect(wallet);
     return account;
   };

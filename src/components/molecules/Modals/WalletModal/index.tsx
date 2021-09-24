@@ -1,3 +1,4 @@
+import React from 'react';
 import ModalWrapper from '../Modal';
 import { useModals } from '../../../../context/Modal';
 
@@ -7,19 +8,18 @@ import metamask from '../../../../assets/img/icons/metamask.svg';
 import walletconnect from '../../../../assets/img/icons/walletconnect.svg';
 
 interface IWalletModalProps {
-  mintNft: (wallet: 'MetaMask' | 'WalletConnect', intervalId: NodeJS.Timeout | null) => void;
-  lastTimerId: NodeJS.Timeout | null;
+  mintNft: (wallet: 'MetaMask' | 'WalletConnect') => void;
 }
 
-const WalletModal: React.FC<IWalletModalProps> = ({ mintNft, lastTimerId }) => {
+const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
   const { modals, closeModal } = useModals();
 
   const handleClose = () => {
     closeModal('wallet');
   };
 
-  const handleMint = (wallet: 'MetaMask' | 'WalletConnect', id: NodeJS.Timeout | null) => {
-    mintNft(wallet, id);
+  const handleMint = (wallet: 'MetaMask' | 'WalletConnect') => {
+    mintNft(wallet);
     handleClose();
   };
 
@@ -29,21 +29,13 @@ const WalletModal: React.FC<IWalletModalProps> = ({ mintNft, lastTimerId }) => {
         <div className={s.title}>Select a Wallet</div>
         <div className={s.subtitle}>Connect to a wallet</div>
         <div className={s.wallets}>
-          <button
-            type="button"
-            onClick={() => handleMint('MetaMask', lastTimerId)}
-            className={s.wallet}
-          >
+          <button type="button" onClick={() => handleMint('MetaMask')} className={s.wallet}>
             <div className={s.wallet_icon}>
               <img src={metamask} alt="metamask" />
             </div>
             <span>Metamask</span>
           </button>
-          <button
-            className={s.wallet}
-            type="button"
-            onClick={() => handleMint('WalletConnect', lastTimerId)}
-          >
+          <button className={s.wallet} type="button" onClick={() => handleMint('WalletConnect')}>
             <div className={s.wallet_icon}>
               <img src={walletconnect} alt="walletconnect" />
             </div>

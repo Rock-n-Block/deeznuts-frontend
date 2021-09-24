@@ -37,7 +37,7 @@ const TIME_FOR_UPDATE = 20000;
 
 const FirstBlockPresale: React.FC = () => {
   const [timeBeforeEnd, setTimeBeforeEnd] = useState(timeToDate(PRESALE_DATE_END));
-  const [lastTimerId, setLastTimerId] = useState<NodeJS.Timeout | null>(null);
+  const [lastTimerId, setLastTimerId] = useState<Array<NodeJS.Timeout>>([]);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -85,10 +85,7 @@ const FirstBlockPresale: React.FC = () => {
     [setModal],
   );
 
-  const mintNft = async (
-    wallet: 'MetaMask' | 'WalletConnect',
-    intervalId: NodeJS.Timeout | null,
-  ) => {
+  const mintNft = async (wallet: 'MetaMask' | 'WalletConnect') => {
     if (!Object.values(timeBeforeEnd).every((el) => el === 0) && is_production) {
       notify("The presale hasn't started yet", 'error');
       return;
@@ -97,18 +94,17 @@ const FirstBlockPresale: React.FC = () => {
 
     if (!info) {
       notify('No Web3 Provider! Please install or download MetaMask', 'error');
+      return;
     }
 
     if (info.code === 3) {
       notify(`${info.message.message} Connect your wallet!`, 'error');
+      return;
     }
 
-    if (info.code === 4) {
+    if ([404, 4].includes(info.code)) {
       notify(info.message.text, 'error');
-    }
-
-    if (info.code === 404) {
-      notify(info.message.text, 'error');
+      return;
     }
 
     if (info && !info.code) {
@@ -134,11 +130,6 @@ const FirstBlockPresale: React.FC = () => {
 
             localStorage.setItem('txHashes', JSON.stringify(hashes));
 
-            console.log({ lastTimerId });
-            if (intervalId) {
-              clearInterval(intervalId);
-            }
-
             notify('The transaction has been sent!', 'success');
             notify(
               'Please stay on the site, your token will be generated within a couple of minutes!',
@@ -150,12 +141,13 @@ const FirstBlockPresale: React.FC = () => {
                 getInfoAboutTx(txHash);
               });
             }, TIME_FOR_UPDATE);
-            setLastTimerId(timerId);
+
+            // current timer id
+            setLastTimerId((prev) => [...prev, timerId]);
           }
         }
       } catch (error: any) {
         notify(error.message, 'error');
-        console.error('METAMASK ERROR', error);
       }
     }
   };
@@ -176,9 +168,16 @@ const FirstBlockPresale: React.FC = () => {
     }
   }, [getInfoAboutTx]);
 
+  useEffect(() => {
+    if (lastTimerId.length >= 2) {
+      const prevId = lastTimerId[lastTimerId.length - 2];
+      clearInterval(prevId);
+    }
+  }, [lastTimerId]);
+
   return (
     <section className={s.block}>
-      <WalletModal lastTimerId={lastTimerId} mintNft={mintNft} />
+      <WalletModal mintNft={mintNft} />
       {modalsData.map((data) => (
         <MintModal
           key={data.txHash}
@@ -203,7 +202,6 @@ const FirstBlockPresale: React.FC = () => {
         </div>
         <div className={s.right}>
           <div className={`${s.title} anim`}>
-            {/* Presale <br /> Launch <br /> <span>starts in</span> */}
             Presale Launch <span>starts in</span>
             <span className={s.white}>…</span>
           </div>
