@@ -7,19 +7,19 @@ import metamask from '../../../../assets/img/icons/metamask.svg';
 import walletconnect from '../../../../assets/img/icons/walletconnect.svg';
 
 interface IWalletModalProps {
-  mintNft: (wallet: 'MetaMask' | 'WalletConnect') => void;
+  mintNft: (wallet: 'MetaMask' | 'WalletConnect', intervalId: NodeJS.Timeout | null) => void;
+  lastTimerId: NodeJS.Timeout | null;
 }
 
-const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
+const WalletModal: React.FC<IWalletModalProps> = ({ mintNft, lastTimerId }) => {
   const { modals, closeModal } = useModals();
 
   const handleClose = () => {
     closeModal('wallet');
   };
 
-  const handleMint = (wallet: 'MetaMask' | 'WalletConnect') => {
-    console.log(wallet);
-    mintNft(wallet);
+  const handleMint = (wallet: 'MetaMask' | 'WalletConnect', id: NodeJS.Timeout | null) => {
+    mintNft(wallet, id);
     handleClose();
   };
 
@@ -29,13 +29,21 @@ const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
         <div className={s.title}>Select a Wallet</div>
         <div className={s.subtitle}>Connect to a wallet</div>
         <div className={s.wallets}>
-          <button type="button" onClick={() => handleMint('MetaMask')} className={s.wallet}>
+          <button
+            type="button"
+            onClick={() => handleMint('MetaMask', lastTimerId)}
+            className={s.wallet}
+          >
             <div className={s.wallet_icon}>
               <img src={metamask} alt="metamask" />
             </div>
             <span>Metamask</span>
           </button>
-          <button className={s.wallet} type="button" onClick={() => handleMint('WalletConnect')}>
+          <button
+            className={s.wallet}
+            type="button"
+            onClick={() => handleMint('WalletConnect', lastTimerId)}
+          >
             <div className={s.wallet_icon}>
               <img src={walletconnect} alt="walletconnect" />
             </div>

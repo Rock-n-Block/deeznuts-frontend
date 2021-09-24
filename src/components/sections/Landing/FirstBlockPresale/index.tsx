@@ -85,7 +85,10 @@ const FirstBlockPresale: React.FC = () => {
     [setModal],
   );
 
-  const mintNft = async (wallet: 'MetaMask' | 'WalletConnect') => {
+  const mintNft = async (
+    wallet: 'MetaMask' | 'WalletConnect',
+    intervalId: NodeJS.Timeout | null,
+  ) => {
     if (!Object.values(timeBeforeEnd).every((el) => el === 0) && is_production) {
       notify("The presale hasn't started yet", 'error');
       return;
@@ -130,8 +133,10 @@ const FirstBlockPresale: React.FC = () => {
             hashes.push(txRes.transactionHash);
 
             localStorage.setItem('txHashes', JSON.stringify(hashes));
-            if (lastTimerId) {
-              clearInterval(lastTimerId);
+
+            console.log({ lastTimerId });
+            if (intervalId) {
+              clearInterval(intervalId);
             }
 
             notify('The transaction has been sent!', 'success');
@@ -173,7 +178,7 @@ const FirstBlockPresale: React.FC = () => {
 
   return (
     <section className={s.block}>
-      <WalletModal mintNft={mintNft} />
+      <WalletModal lastTimerId={lastTimerId} mintNft={mintNft} />
       {modalsData.map((data) => (
         <MintModal
           key={data.txHash}

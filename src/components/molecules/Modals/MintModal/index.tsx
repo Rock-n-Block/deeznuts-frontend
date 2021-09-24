@@ -1,6 +1,7 @@
 import ModalWrapper from '../Modal';
 import { useModals } from '../../../../context/Modal';
 // import { open_sea_link } from '../../../../config/index';
+import ImgWithPreload from '../../../atoms/ImgWithPreload/index';
 
 import s from './MintModal.module.scss';
 
@@ -43,13 +44,7 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
             href={`https://testnets.opensea.io/assets/${contractId}/${id - 1}`}
             className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}
           >
-            <img
-              src={nftPlaceholder}
-              alt="img-nft"
-              onLoad={(e) => {
-                e.currentTarget.src = img;
-              }}
-            />
+            <ImgWithPreload preloader={nftPlaceholder} img={img} />
             <div className={s.img_bg} />
           </a>
         </div>
