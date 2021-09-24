@@ -14,14 +14,19 @@ const Header: React.FC = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className={s.nav}>
-          <div className={s.link}>Roadmap</div>
-          <div className={s.link}>Team</div>
-          <div className={s.link}>Faq</div>
-          <SocialIcon name="twitter" link="/" />
-          <SocialIcon name="insta" link="/" />
-          <SocialIcon name="discord" link="/" />
-          <SocialIcon name="facebook" link="/" />
-          <SocialIcon name="telegram" link="/" />
+          <a href="#roadmap" className={s.link}>
+            Roadmap
+          </a>
+          <a href="#about" className={s.link}>
+            About
+          </a>
+          <a href="#faq" className={s.link}>
+            Faq
+          </a>
+          <SocialIcon name="twitter" link="https://twitter.com/deeznuts" />
+          <SocialIcon name="insta" link="https://www.instagram.com/deeznuts" />
+          <SocialIcon name="discord" link="https://discord.com/invite/deeznutsnfts" />
+          <SocialIcon name="telegram" link="https://t.me/Deeznutscoin" />
         </div>
       </div>
     </header>

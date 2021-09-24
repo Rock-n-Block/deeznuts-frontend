@@ -4,27 +4,35 @@ import deeznut from '../../../../../assets/img/sections/landing/stages/deeznut.p
 
 const Roadmap: React.FC = () => {
   return (
-    <section className={s.section}>
-      <div className={s.subtitle}>Coming October 2021</div>
-      <div className={s.title}>Roadmap</div>
+    <section className={s.section} id="roadmap">
+      <div className={s.nuts_mob}>
+        <img src={deeznut} alt="deeznut" />
+      </div>
+      <div className={`${s.subtitle} anim`}>Coming October 2021</div>
+      <div className={`${s.title} anim`}>Roadmap</div>
       <div className={s.section_body}>
         <div className={s.nuts}>
           <img src={deeznut} alt="deeznut" />
         </div>
         <div className={s.stages}>
-          <div className={s.stage}>STAGE 1 - Presale and mint 10,000</div>
-          <div className={s.stage}>
-            STAGE 2 - Press articles promoting the success of the launch of Deeznuts NFTs
+          <div className={`${s.stage} anim`}>
+            Stage 1 (SEPTEMBER 2021) - Presale and Mint 1,000 Deez Nuts NFTs
           </div>
-          <div className={s.stage}>
-            STAGE 3 - Giveaway $10,000 each week to one lucky NFT holder
+          <div className={`${s.stage} anim`}>
+            Stage 2 (SEPTEMBER 2021) - Public Sale and Mint 9,000 Deez Nuts NFTs
           </div>
-          <div className={s.stage}>
-            STAGE 4 - Invest 50% of the profits into Deeznuts Coin project (The brains behind the
-            game “Flappy Sack”)
+          <div className={`${s.stage} anim`}>
+            Stage 3 (SOLD OUT) - Press articles promoting the success of the launch of Deez Nuts
+            NFTs
           </div>
-          <div className={s.stage}>
-            STAGE 5 - Flappy Sack game launches with Deeznuts NFTs available for use.
+          <div className={`${s.stage} anim`}>
+            Stage 4 (Q4 2021) - “FLAPPY SACK” game app launches with Deez Nuts NFTs available for
+            use with play to earn features with A-list celebrity marketing.
+          </div>
+          <div className={`${s.stage} anim`}>
+            Stage 5 (MAY 2022) - 20 LEGENDARY NFT holders will join the Deez Nuts OG’s team on an
+            ALL INCLUSIVE 7 night vacation in Bali meeting A-list celebrities and Deez Nuts
+            influencers valued up to $5000 per person.
           </div>
         </div>
       </div>

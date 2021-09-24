@@ -4,6 +4,11 @@ export const is_production = false;
 
 export const show_logs = true;
 
+export const is_presale = true;
+
+export const open_sea_link =
+  'https://testnets.opensea.io/assets/0x76f13dd7c89ff425eacc037ead9cd284890475b8/';
+
 export const chain: IChainConfig = {
   name: is_production ? 'Ethereum Mainnet' : 'Ethereum Testnet Rinkeby',
   id: is_production ? 1 : 4,

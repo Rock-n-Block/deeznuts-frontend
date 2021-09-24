@@ -24,7 +24,7 @@ const icons = {
 
 const SocialIcon: React.FC<ISocialIcon> = ({ link, name, classname }) => {
   return (
-    <a className={`${s.icon} ${classname}`} href={link}>
+    <a className={`${s.icon} ${classname}`} target="_blank" rel="noreferrer" href={link}>
       <img src={icons[name]} alt={name} />
     </a>
   );

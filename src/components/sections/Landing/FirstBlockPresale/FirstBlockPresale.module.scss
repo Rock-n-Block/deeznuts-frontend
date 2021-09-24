@@ -1,0 +1,209 @@
+@import '../../../../styles/mixins/media.scss';
+
+.block {
+  background: url('../../../../assets/img/sections/landing/first-block-presale/bg1.png') 0 0
+      no-repeat,
+    #7876b1;
+  background-size: cover;
+  color: #333333;
+  height: calc(100vh + 114px);
+
+  overflow-x: hidden;
+  @include b(mobile) {
+    height: 100%;
+  }
+}
+
+.block_inner {
+  height: 100vh;
+  position: relative;
+  max-width: 1130px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  @include b(mobile) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr;
+  }
+  @include b(mobile) {
+    height: auto;
+  }
+}
+
+.left {
+  position: relative;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  z-index: 5;
+  @include b(mobile) {
+    align-items: center;
+  }
+  @include b(extramobile) {
+    display: block;
+  }
+}
+
+.devil {
+  position: absolute;
+  top: 140px;
+  left: 270px;
+  transform: translateX(50%);
+  @include b(tablet) {
+    display: none;
+  }
+  @include b(mobile) {
+    display: block;
+    top: 0;
+    left: 95%;
+    transform: translateX(-90%);
+    img {
+      width: 120px;
+    }
+  }
+}
+
+.light {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  @include b(mobile) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+      width: 160px;
+    }
+  }
+}
+
+.cosmo {
+  position: absolute;
+  bottom: -50px;
+  left: -150px;
+  @include b(mobile) {
+    top: 0;
+    left: 0;
+    img {
+      width: 120px;
+    }
+  }
+}
+
+.title {
+  font-family: 'FORT';
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  text-align: center;
+  max-width: 360px;
+  font-weight: 600;
+  font-size: 95.5734px;
+  line-height: 86px;
+  color: #1a1917;
+  text-shadow: 0px 3.71658px 11.1497px rgba(0, 0, 0, 0.25);
+  span {
+    color: #a30116;
+  }
+  span.white {
+    color: #fff;
+  }
+  @include b(mobile) {
+    max-width: 100%;
+  }
+  @include b(extramobile) {
+    font-size: 58px;
+    line-height: 1;
+  }
+}
+
+.date {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 42px;
+  position: relative;
+
+  transition-delay: 0.5s !important;
+
+  @include b(mobile) {
+    width: 100%;
+    gap: 15px;
+  }
+
+  &_item {
+    background: #000000;
+    border-radius: 12px;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    @include b(mobile) {
+      width: 100%;
+    }
+
+    & + & {
+      &::after {
+        content: ':';
+        position: absolute;
+        font-size: 36px;
+        font-weight: 700;
+        top: 50%;
+        left: -20px;
+        transform: translateY(-50%);
+        @include b(mobile) {
+          left: -12.5px;
+          font-size: 28px;
+        }
+      }
+    }
+
+    &__number {
+      font-weight: 600;
+      font-size: 70px;
+      color: #fd7d48;
+      margin-bottom: 0px;
+      font-family: 'FORT';
+      max-height: 80px;
+      @include b(400) {
+        font-size: 60px;
+      }
+    }
+    &__subtitle {
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.035em;
+      color: #ffffff;
+    }
+  }
+}
+
+.mint {
+  text-transform: uppercase;
+  font-family: 'FORT';
+  background: #fd7d48;
+  border: 3px solid #ffffff;
+  padding: 20px 50px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  align-self: center;
+  transition-delay: 0.8s !important;
+
+  @include b(mobile) {
+    width: 100%;
+  }
+}

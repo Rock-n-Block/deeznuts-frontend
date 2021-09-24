@@ -1,6 +1,6 @@
 import Mint from './Mint/index';
 import RarityNSpec from './RarityNSpecs/index';
-import Whitepaper from './Whitepaper/index';
+// import Whitepaper from './Whitepaper/index';
 import FAQ from './FAQ/index';
 import Roadmap from './Roadmap/index';
 
@@ -12,7 +12,7 @@ const LandingBody: React.FC = () => {
       <Mint />
       <RarityNSpec />
       <Roadmap />
-      <Whitepaper />
+      {/* <Whitepaper /> */}
       <FAQ />
     </section>
   );

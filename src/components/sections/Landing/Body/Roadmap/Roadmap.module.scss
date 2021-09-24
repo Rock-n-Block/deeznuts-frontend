@@ -1,16 +1,33 @@
+@import '../../../../../styles/mixins/media.scss';
+
 .section {
   text-align: center;
   padding-bottom: 200px;
+  max-width: 1130px;
+  padding: 0 15px;
+  margin: 0 auto;
+  padding-top: 105px;
+  @include b(mobile) {
+    padding-top: 0px;
+  }
+  @include b(tablet) {
+    padding-bottom: 50px;
+  }
   &_body {
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr;
+    @include b(mobile) {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 
 .subtitle {
   color: #fd7d48;
   font-weight: 700;
+  margin-bottom: 22px;
 }
 
 .title {
@@ -19,6 +36,11 @@
   color: #fff;
   margin-bottom: 90px;
   text-transform: uppercase;
+
+  @include b(tablet) {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
 }
 
 .nuts {
@@ -26,6 +48,21 @@
     max-width: 100%;
     animation: top-down 5s linear infinite forwards;
     position: relative;
+  }
+  @include b(mobile) {
+    display: none;
+  }
+}
+
+.nuts_mob {
+  display: none;
+  @include b(mobile) {
+    display: block;
+    img {
+      max-width: 100%;
+      animation: top-down 5s linear infinite forwards;
+      position: relative;
+    }
   }
 }
 
@@ -61,6 +98,7 @@
   text-align: left;
   line-height: 1.5;
   position: relative;
+  transition-delay: 0.5s !important;
   & + & {
     margin-top: 25px;
   }
