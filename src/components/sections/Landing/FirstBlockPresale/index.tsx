@@ -5,7 +5,8 @@ import { useModals } from '../../../../context/Modal';
 import { notify } from '../../../../utils/notify';
 import WalletModal from '../../../molecules/Modals/WalletModal/index';
 import MintModal, { IMintModalProps } from '../../../molecules/Modals/MintModal/index';
-import { is_production } from '../../../../config/index';
+// import { is_production, backendUrl } from '../../../../config/index';
+import { backendUrl } from '../../../../config/index';
 
 import s from './FirstBlockPresale.module.scss';
 
@@ -60,7 +61,7 @@ const FirstBlockPresale: React.FC = () => {
 
   const getInfoAboutTx = useCallback(
     async (txHash: string) => {
-      const headers = await fetch(`https://deeznuts.rocknblock.io/api/v1/payments/${txHash}/`);
+      const headers = await fetch(`${backendUrl}payments/${txHash}/`);
       const data = await headers.json();
 
       if (data.status === 'SUCCESS') {
@@ -86,10 +87,10 @@ const FirstBlockPresale: React.FC = () => {
   );
 
   const mintNft = async (wallet: 'MetaMask' | 'WalletConnect') => {
-    if (!Object.values(timeBeforeEnd).every((el) => el === 0) && is_production) {
-      notify("The presale hasn't started yet", 'error');
-      return;
-    }
+    // if (!Object.values(timeBeforeEnd).every((el) => el === 0) && is_production) {
+    //   notify("The presale hasn't started yet", 'error');
+    //   return;
+    // }
     const info = await init(wallet);
 
     if (!info) {
@@ -109,7 +110,7 @@ const FirstBlockPresale: React.FC = () => {
 
     if (info && !info.code) {
       try {
-        const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json');
+        const backendData = await fetch(`${backendUrl}info/?format=json`);
         const data = await backendData.json();
 
         if (data.minted >= data.total_mint_amount) {

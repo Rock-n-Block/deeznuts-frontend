@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { backendUrl } from '../config/index';
+
 type ModalsTypes = string;
 
 interface IModalsContext {
@@ -10,7 +12,7 @@ interface IModalsContext {
 }
 
 const getInfoFromBackend = async () => {
-  const backendData = await fetch('https://deeznuts.rocknblock.io/api/v1/info/?format=json');
+  const backendData = await fetch(`${backendUrl}info/?format=json`);
   const data = await backendData.json();
   return data;
 };
