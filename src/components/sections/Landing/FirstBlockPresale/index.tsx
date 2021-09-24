@@ -5,8 +5,7 @@ import { useModals } from '../../../../context/Modal';
 import { notify } from '../../../../utils/notify';
 import WalletModal from '../../../molecules/Modals/WalletModal/index';
 import MintModal, { IMintModalProps } from '../../../molecules/Modals/MintModal/index';
-// import { is_production, backendUrl } from '../../../../config/index';
-import { backendUrl } from '../../../../config/index';
+import { is_production, backendUrl } from '../../../../config/index';
 
 import s from './FirstBlockPresale.module.scss';
 
@@ -87,10 +86,10 @@ const FirstBlockPresale: React.FC = () => {
   );
 
   const mintNft = async (wallet: 'MetaMask' | 'WalletConnect') => {
-    // if (!Object.values(timeBeforeEnd).every((el) => el === 0) && is_production) {
-    //   notify("The presale hasn't started yet", 'error');
-    //   return;
-    // }
+    if (!Object.values(timeBeforeEnd).every((el) => el === 0) && is_production) {
+      notify("The presale hasn't started yet", 'error');
+      return;
+    }
     const info = await init(wallet);
 
     if (!info) {

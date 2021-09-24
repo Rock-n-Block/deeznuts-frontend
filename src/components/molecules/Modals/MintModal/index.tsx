@@ -40,7 +40,7 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            href={`https://testnets.opensea.io/assets/${contractId}/${id - 1}`}
+            href={`https://opensea.io/assets/${contractId}/${id - 1}`}
             className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}
           >
             <ImgWithPreload preloader={loader} img={img} />
