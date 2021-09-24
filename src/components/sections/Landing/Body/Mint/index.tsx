@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { is_presale, backendUrl } from '../../../../../config/index';
 
-import { useWeb3Context } from '../../../../context/WalletConnect';
-import { useModals } from '../../../../context/Modal';
-import { notify } from '../../../../utils/notify';
+import { useWeb3Context } from '../../../../../context/WalletConnect';
+import { useModals } from '../../../../../context/Modal';
+import { notify } from '../../../../../utils/notify';
 
 import s from './Mint.module.scss';
 
@@ -12,8 +12,8 @@ import nft2 from '../../../../../assets/img/sections/landing/mint/nft-2.png';
 import nft3 from '../../../../../assets/img/sections/landing/mint/nft-3.png';
 import nft4 from '../../../../../assets/img/sections/landing/mint/nft-4.png';
 
-import WalletModal from '../../../molecules/Modals/WalletModal/index';
-import MintModal, { IMintModalProps } from '../../../molecules/Modals/MintModal/index';
+import WalletModal from '../../../../molecules/Modals/WalletModal/index';
+import MintModal, { IMintModalProps } from '../../../../molecules/Modals/MintModal/index';
 // import { is_production, backendUrl } from '../../../../config/index';
 
 // import devil from '../../../../assets/img/sections/landing/first-block-presale/devil-nft.png';
@@ -162,7 +162,7 @@ const Mint: React.FC = () => {
       <div className={s.block_inner}>
         {!is_presale && (
           <div className={s.left}>
-            <button type="button" onClick={() => {}} className={s.mint}>
+            <button type="button" onClick={() => setModal('wallet')} className={s.mint}>
               <div>MINT-A-SACK</div>
             </button>
             <div className={s.subtitle}>Will you hold the greatest ballsack of ALL-TIME?</div>
@@ -182,15 +182,6 @@ const Mint: React.FC = () => {
             <img src={nft4} alt="nftExample" />
           </div>
         </div>
-        {!is_presale && (
-          <div className={s.info}>
-            <div className={s.title}>DEEZNUTS NFTs</div>
-            <div className={s.subtitle}>
-              Join this ultra-exclusive NFT project featuring not only authentic art, but get HUGE
-              perks along the way!
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
