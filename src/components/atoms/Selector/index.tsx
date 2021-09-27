@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+
 import s from './Selector.module.scss';
+
+import arrow from '../../../assets/img/icons/arrow.svg';
 
 interface ISelectorProps {
   initValue: number | string;
@@ -16,9 +19,10 @@ const Selector: React.FC<ISelectorProps> = ({ initValue, values, onChange }) => 
   }, [value, onChange]);
 
   return (
-    <div className={s.selector}>
+    <div className={`${s.selector} ${isOpened && s.active}`}>
       <button type="button" onClick={() => setIsOpened(!isOpened)} className={s.selector_current}>
-        {value}
+        <span>{value}</span>
+        <img src={arrow} alt="arrow" />
       </button>
       <div className={`${s.selector_others} ${isOpened && s.active}`}>
         {values.map((val) => (

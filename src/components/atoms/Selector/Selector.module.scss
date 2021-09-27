@@ -17,6 +17,12 @@
     align-items: center;
     position: relative;
     z-index: 10;
+    img {
+      transition: 0.4s ease;
+    }
+    span {
+      margin-right: 15px;
+    }
   }
 
   &_others {
@@ -37,6 +43,14 @@
       visibility: visible;
     }
   }
+
+  &.active {
+    .selector_current {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 
 .selector_value {
@@ -46,6 +60,7 @@
   font-family: 'FORT';
   padding: 20px;
   transition: 0.4s ease;
+
   &:hover {
     background-color: #777777;
   }
