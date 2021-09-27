@@ -35,14 +35,14 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 30%;
+      height: 25vh;
       width: 100%;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) -14.47%, #1c1c1c 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) -0%, #1c1c1c 100%);
     }
   }
   @include b(400) {
     &::after {
-      height: 35%;
+      height: 23vh;
     }
   }
 }
