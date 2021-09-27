@@ -1,6 +1,6 @@
 import { IChainConfig, IConnectWallet } from '../types/index';
 
-export const is_production = true;
+export const is_production = false;
 
 export const show_logs = true;
 

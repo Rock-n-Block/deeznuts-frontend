@@ -51,7 +51,7 @@ const FaqData = [
   {
     id: 5,
     title: 'What is the Smart Contract Address for Deez Nuts Sacks?',
-    subtitle: 'This will be revealed for our public sale.',
+    subtitle: '0x7c5fe4bc15bc88d297b133174173f1cc95925b09',
   },
   {
     id: 6,

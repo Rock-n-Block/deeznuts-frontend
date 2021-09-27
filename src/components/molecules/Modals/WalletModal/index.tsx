@@ -8,18 +8,18 @@ import metamask from '../../../../assets/img/icons/metamask.svg';
 import walletconnect from '../../../../assets/img/icons/walletconnect.svg';
 
 interface IWalletModalProps {
-  mintNft: (wallet: 'MetaMask' | 'WalletConnect') => void;
+  init: (wallet: 'MetaMask' | 'WalletConnect') => void;
 }
 
-const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
+const WalletModal: React.FC<IWalletModalProps> = ({ init }) => {
   const { modals, closeModal } = useModals();
 
   const handleClose = () => {
     closeModal('wallet');
   };
 
-  const handleMint = (wallet: 'MetaMask' | 'WalletConnect') => {
-    mintNft(wallet);
+  const handleInit = (wallet: 'MetaMask' | 'WalletConnect') => {
+    init(wallet);
     handleClose();
   };
 
@@ -29,13 +29,13 @@ const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
         <div className={s.title}>Select a Wallet</div>
         <div className={s.subtitle}>Connect to a wallet</div>
         <div className={s.wallets}>
-          <button type="button" onClick={() => handleMint('MetaMask')} className={s.wallet}>
+          <button type="button" onClick={() => handleInit('MetaMask')} className={s.wallet}>
             <div className={s.wallet_icon}>
               <img src={metamask} alt="metamask" />
             </div>
             <span>Metamask</span>
           </button>
-          <button className={s.wallet} type="button" onClick={() => handleMint('WalletConnect')}>
+          <button className={s.wallet} type="button" onClick={() => handleInit('WalletConnect')}>
             <div className={s.wallet_icon}>
               <img src={walletconnect} alt="walletconnect" />
             </div>

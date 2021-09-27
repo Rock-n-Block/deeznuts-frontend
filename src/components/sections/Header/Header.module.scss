@@ -6,17 +6,14 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  max-width: 1130px;
-  padding: 0 15px;
-  margin: 0 auto;
-  left: 50%;
-  transform: translateX(-50%);
   &_inner {
-    @include container;
+    max-width: 1130px;
+    padding: 0 15px;
     padding-top: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
     @include b(extramobile) {
       padding: 10px;
       justify-content: center;
@@ -30,6 +27,7 @@
 }
 
 .logo {
+  flex-grow: 1;
   img {
     @include b(extramobile) {
       width: 43px;
@@ -41,6 +39,7 @@
 .nav {
   display: flex;
   align-items: center;
+  margin-right: 30px;
   @include b(extramobile) {
     display: none;
   }
@@ -53,4 +52,13 @@
     color: #fff;
     text-decoration: none;
   }
+}
+
+.connect {
+  font-weight: 600;
+  font-size: 24px;
+  background-color: #fd7d48;
+  font-family: 'FORT';
+  text-transform: uppercase;
+  padding: 16px;
 }

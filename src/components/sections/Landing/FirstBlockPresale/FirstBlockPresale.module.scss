@@ -8,7 +8,6 @@
   color: #333333;
   height: calc(100vh + 114px);
 
-  overflow-x: hidden;
   @include b(mobile) {
     padding-bottom: 30px;
     height: 100%;
@@ -31,6 +30,20 @@
   }
   @include b(mobile) {
     height: auto;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 30%;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) -14.47%, #1c1c1c 100%);
+    }
+  }
+  @include b(400) {
+    &::after {
+      height: 35%;
+    }
   }
 }
 
@@ -158,6 +171,7 @@
   line-height: 1.5;
   text-align: right;
   max-width: 310px;
+  margin-bottom: 25px;
   @include b(mobile) {
     color: #fff;
     text-align: left;

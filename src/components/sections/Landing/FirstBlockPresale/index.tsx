@@ -1,4 +1,5 @@
 // import { is_production, backendUrl } from '../../../../config/index';
+import { MintNft } from '../../../organisms/index';
 
 import s from './FirstBlockPresale.module.scss';
 
@@ -34,6 +35,9 @@ const FirstBlockPresale: React.FC = () => {
           <div className={`${s.subtitle} anim`}>
             Join this ultra-exclusive NFT project featuring not only authentic art, but get HUGE
             perks along the way!
+          </div>
+          <div className={s.mint}>
+            <MintNft />
           </div>
         </div>
       </div>

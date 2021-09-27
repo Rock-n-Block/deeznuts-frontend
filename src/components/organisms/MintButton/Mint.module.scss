@@ -1,0 +1,18 @@
+@import '../../../styles/mixins/media.scss';
+
+.mint {
+  font-weight: 600;
+  font-size: 49px;
+  font-family: 'FORT';
+  padding: 20px 40px;
+  background-color: #fd7d48;
+  @include b(400) {
+    font-size: 32px;
+  }
+}
+
+.block_inner {
+  display: grid;
+  grid-template-columns: 2.7fr 1fr;
+  gap: 1px;
+}

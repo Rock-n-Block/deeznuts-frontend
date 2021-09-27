@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { WalletConnect } from '../services/connect-wallet/index';
 
 interface ITxData {
@@ -7,18 +7,30 @@ interface ITxData {
   value: string;
 }
 
+export interface IUser {
+  adress: string | null;
+  code?: number;
+  message?: {
+    message: string;
+  };
+}
+
 const wcService = new WalletConnect();
 
 interface IContext {
   init: (wallet: 'MetaMask' | 'WalletConnect') => any;
   sendEth: (data: ITxData) => any;
+  user: IUser;
 }
 
 const Web3Context = createContext({} as IContext);
 
 const WalletConnectProvider: React.FC = ({ children }) => {
+  const [user, setUser] = useState<IUser>({ adress: null });
+
   const init = async (wallet: 'MetaMask' | 'WalletConnect') => {
     const account = await wcService.initWalletConnect(wallet);
+    setUser({ adress: account.address });
     return account;
   };
 
@@ -28,7 +40,7 @@ const WalletConnectProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <Web3Context.Provider value={{ init, sendEth: (data: ITxData) => sendEth(data) }}>
+    <Web3Context.Provider value={{ init, sendEth: (data: ITxData) => sendEth(data), user }}>
       {children}
     </Web3Context.Provider>
   );

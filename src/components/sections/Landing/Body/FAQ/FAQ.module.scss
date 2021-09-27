@@ -28,6 +28,7 @@
 
 .faqs {
   margin-top: 80px;
+  max-width: 100%;
   @include b(mobile) {
     margin-top: 40px;
   }

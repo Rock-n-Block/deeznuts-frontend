@@ -39,14 +39,12 @@
 }
 
 .right {
-  margin-left: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 7px;
   padding: 25px;
   @include b(tablet) {
     margin-bottom: 25px;
-    margin-left: 0;
     padding: 0px;
   }
 }

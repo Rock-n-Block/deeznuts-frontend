@@ -11,12 +11,12 @@ export class WalletConnect {
     this.connectWallet = new ConnectWallet();
   }
 
-  public async initWalletConnect(name: string): Promise<boolean> {
+  public async initWalletConnect(name: string): Promise<any> {
     const { provider, network, settings } = connectWalletConfig;
 
     const connecting = this.connectWallet
       .connect(provider[name], network, settings)
-      .then((connected: boolean) => {
+      .then((connected: any) => {
         if (connected) {
           return this.getAccounts();
         }
@@ -78,7 +78,9 @@ export class WalletConnect {
         } else
           resolve({
             code: 404,
-            message: { text: `Wrong network, please choose ${connectWalletConfig.network.name}` },
+            message: {
+              message: `Wrong network, please choose ${connectWalletConfig.network.name}`,
+            },
           });
       });
     });
