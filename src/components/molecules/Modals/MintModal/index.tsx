@@ -14,11 +14,16 @@ export interface IMintModalProps {
   rarity: 'common' | 'uncommon' | 'rare' | 'legendary';
 }
 
-const MintModal: React.FC<IMintModalProps> = ({ rarity, image, id }) => {
+interface IProps extends IMintModalProps {
+  setModalsData: React.Dispatch<React.SetStateAction<IMintModalProps[]>>;
+}
+
+const MintModal: React.FC<IProps> = ({ rarity, image, id, setModalsData }) => {
   const { modals, closeModal, contractId } = useModals();
 
   const handleClose = () => {
     closeModal(id.toString());
+    setModalsData((prev) => [...prev.filter((el) => el.id !== id)]);
     fetch(`${backendUrl}payments/viewed/${id}/`);
   };
 

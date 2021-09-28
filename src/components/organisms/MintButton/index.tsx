@@ -97,7 +97,6 @@ const Mint: React.FC = () => {
     if (lastTimerId.length >= 2) {
       const prevId = lastTimerId[lastTimerId.length - 2];
       clearInterval(prevId);
-      console.log('CLEAR INTERVAL', prevId);
     }
   }, [lastTimerId]);
 
@@ -105,8 +104,14 @@ const Mint: React.FC = () => {
 
   return (
     <section className={s.block}>
-      {modalsData.map((data) => (
-        <MintModal key={data.id} image={data.image} rarity={data.rarity} id={data.id} />
+      {modalsData.slice(-3).map((data) => (
+        <MintModal
+          key={data.id}
+          image={data.image}
+          rarity={data.rarity}
+          id={data.id}
+          setModalsData={setModalsData}
+        />
       ))}
       <div className={s.block_inner}>
         <button type="button" onClick={() => mintNft(user, selectorValue)} className={s.mint}>
