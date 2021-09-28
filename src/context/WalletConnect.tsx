@@ -48,13 +48,15 @@ const WalletConnectProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     init('MetaMask');
-    window.ethereum.on('accountsChanged', (accounts: any) => {
-      setUser({ adress: accounts[0] });
-      notify(
-        `You have changed your account: ${accounts[0].slice(0, 5)}...${accounts[0].slice(-5)}`,
-        'success',
-      );
-    });
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', (accounts: any) => {
+        setUser({ adress: accounts[0] });
+        notify(
+          `You have changed your account: ${accounts[0].slice(0, 5)}...${accounts[0].slice(-5)}`,
+          'success',
+        );
+      });
+    }
   }, []);
 
   return (
