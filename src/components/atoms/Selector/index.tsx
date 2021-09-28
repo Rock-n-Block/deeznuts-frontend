@@ -13,7 +13,7 @@ interface ISelectorProps {
 const Selector: React.FC<ISelectorProps> = ({ initValue, values, onChange }) => {
   const [value, setValue] = useState(initValue);
   const [isOpened, setIsOpened] = useState(false);
-  const [isTop, setIsTop] = useState(false);
+  const [isTop] = useState(false);
 
   useEffect(() => {
     onChange(value);
@@ -26,20 +26,20 @@ const Selector: React.FC<ISelectorProps> = ({ initValue, values, onChange }) => 
       onKeyDown={() => {}}
       className={`${s.selector} ${isOpened && s.active}`}
       onClick={() => {
-        const selector = document.querySelector(`.${s.selector_others}`);
-        if (selector) {
-          if (
-            document.documentElement.clientHeight -
-              selector.getBoundingClientRect().bottom -
-              selector.clientHeight +
-              selector.clientHeight / 8 <
-            0
-          ) {
-            if (!selector.classList.contains(s.active)) {
-              setIsTop(true);
-            }
-          } else setIsTop(false);
-        }
+        // const selector = document.querySelector(`.${s.selector_others}`);
+        // if (selector) {
+        //   if (
+        //     document.documentElement.clientHeight -
+        //       selector.getBoundingClientRect().bottom -
+        //       selector.clientHeight +
+        //       selector.clientHeight / 8 <
+        //     0
+        //   ) {
+        //     if (!selector.classList.contains(s.active)) {
+        //       setIsTop(true);
+        //     }
+        //   } else setIsTop(false);
+        // }
       }}
     >
       <button type="button" onClick={() => setIsOpened(!isOpened)} className={s.selector_current}>
