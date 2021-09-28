@@ -33,8 +33,13 @@ const ModalsProvider: React.FC = ({ children }) => {
   };
 
   useEffect(() => {
-    if (modals.length > 0) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'visible';
+    if (modals.length > 0) {
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.modals')?.classList.add('active');
+    } else {
+      document.body.style.overflow = 'visible';
+      document.querySelector('.modals')?.classList.remove('active');
+    }
   }, [modals]);
 
   useEffect(() => {

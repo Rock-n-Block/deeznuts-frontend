@@ -30,7 +30,7 @@ const MintModal: React.FC<IMintModalProps> = ({ rarity, image, id }) => {
     <ModalWrapper close={handleClose} isActive={modals.includes(id.toString())}>
       <div className={s.modal}>
         <div className={s.title}>
-          You&apos;ve minted a <br />{' '}
+          You&apos;ve minted {rarity === 'uncommon' ? 'an' : 'a'} <br />{' '}
           {rarity === 'legendary' ? <span>{rarity.toUpperCase()}</span> : rarity.toUpperCase()} DEEZ
           NUTS NFT!
         </div>
@@ -62,9 +62,9 @@ const MintModal: React.FC<IMintModalProps> = ({ rarity, image, id }) => {
           </>
         ) : (
           <div className={s.subtitle}>
-            Common NFT holders will get access to Exclusive VIP Deeznuts crypto events in 2022 with
-            the Deez Nuts OG team and get access to the hidden DEEZ NUTS NFT Discord category. Join
-            here:
+            {rarity[0].toUpperCase() + rarity.slice(1)} NFT holders will get access to Exclusive VIP
+            Deeznuts crypto events in 2022 with the Deez Nuts OG team and get access to the hidden
+            DEEZ NUTS NFT Discord category. Join here:
           </div>
         )}
 

@@ -14,9 +14,8 @@ const ModalWrapper: React.FC<IModalWrapperProps> = ({ children, isActive, close 
   const el = React.useMemo(() => document.createElement('div'), []);
 
   React.useEffect(() => {
-    const target = document.body;
-    const classList = 'portal-container';
-    el.classList.add(classList);
+    const target = document.querySelector('.modals') || document.body;
+    el.classList.add('portal-container');
     target.appendChild(el);
 
     return () => {

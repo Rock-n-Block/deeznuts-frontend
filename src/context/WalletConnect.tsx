@@ -48,6 +48,7 @@ const WalletConnectProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     init('MetaMask');
+
     if (window.ethereum) {
       window.ethereum.on('accountsChanged', (accounts: any) => {
         setUser({ adress: accounts[0] });

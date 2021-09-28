@@ -13,7 +13,6 @@ export const App: React.FC = () => {
         <LandingPage />
         <Footer />
       </div>
-      <div className="app-modals" />
     </>
   );
 };
