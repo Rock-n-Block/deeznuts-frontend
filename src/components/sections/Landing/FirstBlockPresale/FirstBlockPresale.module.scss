@@ -9,7 +9,6 @@
   height: calc(100vh + 114px);
 
   @include b(mobile) {
-    padding-bottom: 30px;
     height: 100%;
   }
 }
@@ -35,14 +34,9 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 25vh;
+      height: 45%;
       width: 100%;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0) -0%, #1c1c1c 100%);
-    }
-  }
-  @include b(400) {
-    &::after {
-      height: 23vh;
     }
   }
 }
@@ -57,7 +51,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   @include b(mobile) {
     align-items: center;
   }
@@ -121,10 +115,10 @@
 .title {
   font-family: 'FORT';
   color: #fff;
-  text-align: left;
+  text-align: right;
   font-weight: 600;
   font-size: 102px;
-  line-height: 0.8;
+  line-height: 0.9;
   color: #1a1917;
   text-shadow: 0px 3.71658px 11.1497px rgba(0, 0, 0, 0.25);
   span {
@@ -135,6 +129,7 @@
   }
   @include b(mobile) {
     max-width: 100%;
+    text-align: left;
   }
   @include b(extramobile) {
     font-size: 80px;
@@ -151,14 +146,26 @@
   text-align: right;
   margin-right: 28px;
   align-self: flex-end;
-  line-height: 1;
+  line-height: 0.9;
   div {
     color: #1a1917;
     font-size: 55px;
   }
+
+  position: relative;
+  right: -60px;
+  top: -5px;
   @include b(mobile) {
-    font-size: 50px;
+    top: -10px;
+    left: 0;
+    font-size: 61px;
     margin-right: 15px;
+    div {
+      font-size: 45px;
+    }
+  }
+  @include b(extramobile) {
+    font-size: 50px;
     div {
       font-size: 35px;
     }
@@ -177,5 +184,16 @@
     text-align: left;
     max-width: 100%;
     font-size: 15px;
+  }
+}
+
+.mint_subtitle {
+  margin-top: 20px;
+  font-size: 17px;
+  @include b(mobile) {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 30px;
+    text-align: center;
   }
 }

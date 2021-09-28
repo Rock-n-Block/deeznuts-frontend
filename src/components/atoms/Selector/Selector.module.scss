@@ -1,3 +1,5 @@
+@import '../../../styles/mixins/media.scss';
+
 .selector {
   height: 100%;
   width: 100%;
@@ -22,6 +24,9 @@
     }
     span {
       margin-right: 15px;
+    }
+    @include b(extramobile) {
+      font-size: 40px;
     }
   }
 

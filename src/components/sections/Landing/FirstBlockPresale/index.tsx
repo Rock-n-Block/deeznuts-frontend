@@ -38,6 +38,7 @@ const FirstBlockPresale: React.FC = () => {
           </div>
           <div className={s.mint}>
             <MintNft />
+            <div className={s.mint_subtitle}>Will you hold the greatest ballsack of ALL-TIME?</div>
           </div>
         </div>
       </div>
