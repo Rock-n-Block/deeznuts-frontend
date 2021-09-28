@@ -13,18 +13,39 @@ interface ISelectorProps {
 const Selector: React.FC<ISelectorProps> = ({ initValue, values, onChange }) => {
   const [value, setValue] = useState(initValue);
   const [isOpened, setIsOpened] = useState(false);
+  const [isTop, setIsTop] = useState(false);
 
   useEffect(() => {
     onChange(value);
   }, [value, onChange]);
 
   return (
-    <div className={`${s.selector} ${isOpened && s.active}`}>
+    <div
+      role="button"
+      tabIndex={0}
+      onKeyDown={() => {}}
+      className={`${s.selector} ${isOpened && s.active}`}
+      onClick={() => {
+        const selector = document.querySelector(`.${s.selector_others}`);
+        if (selector) {
+          if (
+            document.documentElement.clientHeight -
+              selector.getBoundingClientRect().bottom -
+              selector.clientHeight <
+            0
+          ) {
+            if (!selector.classList.contains(s.active)) {
+              setIsTop(true);
+            }
+          } else setIsTop(false);
+        }
+      }}
+    >
       <button type="button" onClick={() => setIsOpened(!isOpened)} className={s.selector_current}>
         <span>{value}</span>
         <img src={arrow} alt="arrow" />
       </button>
-      <div className={`${s.selector_others} ${isOpened && s.active}`}>
+      <div className={`${s.selector_others} ${isOpened && s.active} ${isTop && s.top}`}>
         {values.map((val) => (
           <button
             key={val}

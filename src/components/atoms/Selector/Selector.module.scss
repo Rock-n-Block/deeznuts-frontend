@@ -47,6 +47,9 @@
       opacity: 1;
       visibility: visible;
     }
+    &.top {
+      transform: translateY(-133%);
+    }
   }
 
   &.active {
