@@ -4,6 +4,13 @@ import Web3 from 'web3';
 import { connectWalletConfig } from '../../config/index';
 import { clogData } from '../../utils/logger';
 
+declare global {
+  interface Window {
+    web3: Web3;
+    ethereum: any;
+  }
+}
+
 export class WalletConnect {
   private connectWallet: any;
 
