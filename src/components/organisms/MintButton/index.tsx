@@ -104,7 +104,7 @@ const Mint: React.FC = () => {
 
   return (
     <section className={s.block}>
-      {modalsData.slice(-3).map((data) => (
+      {modalsData.slice(0, 1).map((data) => (
         <MintModal
           key={data.id}
           image={data.image}
