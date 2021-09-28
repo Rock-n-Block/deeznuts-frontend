@@ -69,7 +69,7 @@ const Mint: React.FC = () => {
             );
 
             const timerId = setInterval(() => {
-              console.log('HERE POOL BACK');
+              getInfoAboutTx(user.adress || '');
             }, TIME_FOR_UPDATE);
 
             // current timer id
@@ -86,9 +86,10 @@ const Mint: React.FC = () => {
     if (user.adress) {
       getInfoAboutTx(user.adress);
 
-      setInterval(() => {
+      const id = setInterval(() => {
         getInfoAboutTx(user.adress || '');
       }, TIME_FOR_UPDATE);
+      setLastTimerId((prev) => [...prev, id]);
     }
   }, [getInfoAboutTx, user.adress]);
 
@@ -96,6 +97,7 @@ const Mint: React.FC = () => {
     if (lastTimerId.length >= 2) {
       const prevId = lastTimerId[lastTimerId.length - 2];
       clearInterval(prevId);
+      console.log('CLEAR INTERVAL', prevId);
     }
   }, [lastTimerId]);
 
