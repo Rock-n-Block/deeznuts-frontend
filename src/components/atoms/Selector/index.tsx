@@ -31,7 +31,8 @@ const Selector: React.FC<ISelectorProps> = ({ initValue, values, onChange }) => 
           if (
             document.documentElement.clientHeight -
               selector.getBoundingClientRect().bottom -
-              selector.clientHeight <
+              selector.clientHeight +
+              selector.clientHeight / 8 <
             0
           ) {
             if (!selector.classList.contains(s.active)) {

@@ -49,6 +49,9 @@
     }
     &.top {
       transform: translateY(-133%);
+      @include b(extramobile) {
+        transform: translateY(-127%);
+      }
     }
   }
 
