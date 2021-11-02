@@ -2,18 +2,14 @@
 @import '../../../styles/mixins/media.scss';
 
 .header {
-  position: fixed;
-  top: 0;
+  background: url('../../../assets/img/sections/landing/header/bg.png') 0 0 no-repeat;
+  background-size: cover;
   width: 100%;
-  z-index: 1000;
-  max-width: 1130px;
-  padding: 0 15px;
-  margin: 0 auto;
-  left: 50%;
-  transform: translateX(-50%);
+  // transform: translateY(-110px);
   &_inner {
     @include container;
-    padding-top: 25px;
+    padding-top: 32px;
+    padding-bottom: 79px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,6 +27,8 @@
 
 .logo {
   img {
+    width: 60px;
+    height: 60px;
     @include b(extramobile) {
       width: 43px;
       height: 43px;
@@ -45,12 +43,22 @@
     display: none;
   }
   .link {
-    font-weight: 700;
+    font-family: 'TL', sans-serif;
+    font-size: 22px;
+    line-height: 25px;
     font-size: 14px;
     text-transform: uppercase;
-    margin-right: 20px;
     cursor: pointer;
     color: #fff;
     text-decoration: none;
   }
+  .link + .link {
+    margin-left: 40px;
+  }
+}
+
+.button {
+  font-family: 'TL', sans-serif;
+  font-size: 22px;
+  line-height: 25px;
 }

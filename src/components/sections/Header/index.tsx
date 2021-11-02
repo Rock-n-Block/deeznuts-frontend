@@ -1,10 +1,9 @@
 import React from 'react';
 
-import SocialIcon from '../../atoms/SocialLink/index';
-
 import s from './Header.module.scss';
 
 import logo from '../../../assets/img/sections/landing/header/logo60x60.png';
+import Button from '../../atoms/Button';
 
 const Header: React.FC = () => {
   return (
@@ -14,20 +13,20 @@ const Header: React.FC = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className={s.nav}>
+          <a href="#project" className={s.link}>
+            Project
+          </a>
           <a href="#roadmap" className={s.link}>
             Roadmap
           </a>
-          <a href="#about" className={s.link}>
-            About
+          <a href="#team" className={s.link}>
+            Team
           </a>
           <a href="#faq" className={s.link}>
             Faq
           </a>
-          <SocialIcon name="twitter" link="https://twitter.com/deeznuts" />
-          <SocialIcon name="insta" link="https://www.instagram.com/deeznuts" />
-          <SocialIcon name="discord" link="https://discord.com/invite/deeznutsnfts" />
-          <SocialIcon name="telegram" link="https://t.me/Deeznutscoin" />
         </div>
+        <Button title="Connect wallet" className={s.button} />
       </div>
     </header>
   );

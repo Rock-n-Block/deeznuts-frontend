@@ -1,5 +1,6 @@
 @import './mixins/fonts.scss';
 
 @include font-face('MSR', '../assets/fonts/Montserrat-Regular', 400);
+@include font-face('TL', '../assets/fonts/True Lies', 400, normal, false, 'ttf');
 @include font-face('MSR', '../assets/fonts/Montserrat-Bold', 700);
 @include font-face('FORT', '../assets/fonts/BurbankBigCondensed-Bold', 700);

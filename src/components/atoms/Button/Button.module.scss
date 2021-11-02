@@ -1,15 +1,13 @@
 .button {
-  padding: 10px 40px;
-  background-color: #fd7d48;
-  font-family: 'FORT';
-  font-size: 40px;
-  text-transform: uppercase;
-  border: 3px solid #ffffff;
-  color: #fff;
-  text-decoration: none;
+  background: #000000;
+  border: 2px solid #db5555;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 2px #ff1616;
+  border-radius: 12px;
+  padding: 17px 30px;
 
-  &.transparent {
-    background: transparent;
-    border: 3px solid #fd7d48;
-  }
+  // &.transparent {
+  //   background: transparent;
+  //   border: 3px solid #fd7d48;
+  // }
 }

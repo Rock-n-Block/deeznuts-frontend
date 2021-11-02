@@ -12,9 +12,17 @@ interface IModalsContext {
 }
 
 const getInfoFromBackend = async () => {
-  const backendData = await fetch(`${backendUrl}info/?format=json`);
-  const data = await backendData.json();
-  return data;
+  let result = {
+    contract_address: '0x0'
+  }
+  try {
+    const backendData = await fetch(`${backendUrl}info/?format=json`);
+    const data = await backendData.json();
+    result = data;
+  } catch (error: any) {
+    console.log(error);
+  }
+  return result;
 };
 
 const ModalsContext = React.createContext({} as IModalsContext);

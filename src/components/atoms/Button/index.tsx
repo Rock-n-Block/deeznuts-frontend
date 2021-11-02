@@ -1,21 +1,23 @@
 import React from 'react';
 import s from './Button.module.scss';
+import cn from 'classnames';
 
 interface IButton {
   title: string;
   href?: string;
   onClick?: () => void;
   transparent?: boolean;
+  className?: string;
 }
 
-const Button: React.FC<IButton> = ({ title, href, onClick, transparent }) => {
+const Button: React.FC<IButton> = ({ title, href, onClick, transparent, className }) => {
   if (href) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noreferrer"
-        className={`${s.button} ${transparent && s.transparent}`}
+        className={cn(s.button, { [s.transparent]: transparent }, className)}
       >
         {title}
       </a>
@@ -25,7 +27,7 @@ const Button: React.FC<IButton> = ({ title, href, onClick, transparent }) => {
     <button
       type="button"
       onClick={() => onClick && onClick()}
-      className={`${s.button} ${transparent && s.transparent}`}
+      className={cn(s.button, { [s.transparent]: transparent }, className)}
     >
       {title}
     </button>
