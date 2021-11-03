@@ -2,7 +2,8 @@
 @import '../../../styles/mixins/media.scss';
 
 .header {
-  background: url('../../../assets/img/sections/landing/header/bg.png') 0 0 no-repeat;
+  background: url('../../../assets/img/sections/landing/header/bg.png') center center no-repeat,
+  #000000;
   background-size: cover;
   width: 100%;
   // transform: translateY(-110px);

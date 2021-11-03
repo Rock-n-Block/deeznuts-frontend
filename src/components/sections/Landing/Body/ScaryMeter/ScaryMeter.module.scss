@@ -1,0 +1,133 @@
+@import '../../../../../styles/mixins/container.scss';
+@import '../../../../../styles/mixins/media.scss';
+
+.section {
+  background: url('../../../../../assets/img/sections/landing/header/bg.png') center 0 no-repeat,
+    #000000;
+  background-size: 100% 50%;
+  padding-top: 81px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // grid-template-columns: 1fr 1fr;
+  // padding-bottom: 100px;
+  // max-width: 1130px;
+  // padding: 0 15px;
+  // margin: 0 auto;
+  @include b(mobile) {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+}
+
+.content {
+  @include container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  @include b(mobile){
+    flex-direction: column;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  margin-right: 27px;
+  @include b(mobile){
+    flex-direction: column;
+  }
+}
+
+.title {
+  background: #000000;
+  box-sizing: border-box;
+  border: 4px solid #ff1616;
+  border-radius: 12px;
+  padding: 17px 30px;
+  font-size: 50px;
+  line-height: 58px;
+  font-family: 'TL';
+  width: fit-content;
+  margin: 0 auto;
+  @include b(tablet) {
+    font-size: 50px;
+  }
+  @include b(mobile) {
+    text-align: center;
+  }
+}
+
+.levels {
+  display: flex;
+  flex-direction: column;
+  @include b(mobile){
+    flex-direction: row;
+  }
+}
+
+.level {
+  font-size: 25px;
+  line-height: 29px;
+  font-family: 'TL', sans-serif;
+  & + & {
+    margin-top: 13px;
+  }
+  &.active {
+    background: #ea3b3b;
+  }
+}
+
+.description {
+  background: linear-gradient(180deg, #000000 0%, rgba(50, 50, 50, 0.85) 100%);
+  border: 2px solid #676767;
+  box-sizing: border-box;
+  box-shadow: inset 0px 2px 12px 5px #787878;
+  border-radius: 12px;
+  padding: 51px 39px;
+  margin-left: 26px;
+  max-height: 374px;
+  max-width: 374px;
+}
+
+.subtitle {
+  max-width: 500px;
+  line-height: 1.5;
+  transition-delay: 1s !important;
+  span {
+    font-weight: 700;
+    color: #fd7d48;
+  }
+  & + & {
+    margin-top: 25px;
+  }
+}
+
+.right {
+}
+
+.head {
+  font-family: 'MSR', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 17px;
+  height: 42px;
+}
+
+.price {
+  background: #000000;
+  box-sizing: border-box;
+  border: 4px solid #ff1616;
+  border-radius: 12px;
+  padding: 5px 31px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

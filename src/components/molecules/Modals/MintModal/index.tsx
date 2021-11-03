@@ -1,11 +1,8 @@
 import ModalWrapper from '../Modal';
 import { useModals } from '../../../../context/Modal';
-import ImgWithPreload from '../../../atoms/ImgWithPreload/index';
 
 import s from './MintModal.module.scss';
-
-import discrod from '../../../../assets/img/icons/discord-blue.svg';
-import loader from '../../../../assets/img/icons/loader.svg';
+import { useState } from 'react';
 
 export interface IMintModalProps {
   type: 'COMMON' | 'LEGENDARY';
@@ -14,8 +11,9 @@ export interface IMintModalProps {
   id: number;
 }
 
-const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
-  const { modals, closeModal, contractId } = useModals();
+const MintModal: React.FC<IMintModalProps> = ({ txHash, id }) => {
+  const [amount, setAmount] = useState(1);
+  const { modals, closeModal } = useModals();
 
   const handleClose = () => {
     closeModal(txHash);
@@ -29,10 +27,39 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
     return <></>;
   }
 
+  const handleAmount = (num: number, type: 'plus' | 'minus') => {
+    setAmount(type === 'plus' ? num + 1 : num - 1);
+  };
+
   return (
     <ModalWrapper close={handleClose} isActive={modals.includes(txHash)}>
       <div className={s.modal}>
-        <div className={s.title}>
+        <input className={s.text} />
+        <div className={s.buttons}>
+          <div className={s.amountWrapper}>
+            <button
+              type="button"
+              className={s.changeAmount}
+              onClick={() => handleAmount(amount, 'minus')}
+            >
+              -
+            </button>
+            <div className={s.amount}>
+              <span>{amount < 10 ? `0${amount}` : amount}</span>
+            </div>
+            <button
+              type="button"
+              className={s.changeAmount}
+              onClick={() => handleAmount(amount, 'plus')}
+            >
+              +
+            </button>
+          </div>
+          <button type="button" className={s.mint}>
+            MINT
+          </button>
+        </div>
+        {/* <div className={s.title}>
           You&apos;ve minted a <br /> {type === 'LEGENDARY' ? <span>{type}</span> : type} DEEZ NUTS
           NFT!
         </div>
@@ -80,7 +107,7 @@ const MintModal: React.FC<IMintModalProps> = ({ type, img, txHash, id }) => {
               discord/deeznutsnfts
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </ModalWrapper>
   );

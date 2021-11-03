@@ -1,15 +1,15 @@
 @import '../../../../styles/mixins/media.scss';
 
 .block {
-  background: url('../../../../assets/img/sections/landing/body/bg.png') 0 0 no-repeat;
-  background-size: 100%;
-  position: relative;
-  padding-top: 250px;
+  // background: url('../../../../assets/img/sections/landing/body/bg.png') 0 0 no-repeat;
+  // background-size: 100%;
+  // position: relative;
+  // padding-top: 250px;
 
-  @include b(tablet) {
-    background: none;
-  }
-  @include b(mobile) {
-    padding-top: 30px;
-  }
+  // @include b(tablet) {
+  //   background: none;
+  // }
+  // @include b(mobile) {
+  //   padding-top: 30px;
+  // }
 }

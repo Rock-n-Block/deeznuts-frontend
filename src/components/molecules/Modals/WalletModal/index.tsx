@@ -8,7 +8,7 @@ import metamask from '../../../../assets/img/icons/metamask.svg';
 import walletconnect from '../../../../assets/img/icons/walletconnect.svg';
 
 interface IWalletModalProps {
-  mintNft: (wallet: 'MetaMask' | 'WalletConnect') => void;
+  mintNft?: (wallet: 'MetaMask' | 'WalletConnect') => void;
 }
 
 const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
@@ -19,12 +19,14 @@ const WalletModal: React.FC<IWalletModalProps> = ({ mintNft }) => {
   };
 
   const handleMint = (wallet: 'MetaMask' | 'WalletConnect') => {
-    mintNft(wallet);
+    if (mintNft) {
+      mintNft(wallet);
+    }
     handleClose();
   };
 
   return (
-    <ModalWrapper close={handleClose} isActive={modals.includes('wallet')}>
+    <ModalWrapper close={handleClose} isActive={modals.includes('wallet')} className={s.wrapper}>
       <div className={s.modal}>
         <div className={s.title}>Select a Wallet</div>
         <div className={s.subtitle}>Connect to a wallet</div>

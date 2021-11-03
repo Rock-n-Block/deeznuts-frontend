@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import cn from 'classnames';
 
 import s from './Modal.module.scss';
 
-import cross from '../../../../assets/img/icons/cross.svg';
+import {ReactComponent as Cross} from '../../../../assets/img/icons/cross.svg';
 
 interface IModalWrapperProps {
   isActive: boolean;
   close: () => void;
+  className?: string;
 }
 
-const ModalWrapper: React.FC<IModalWrapperProps> = ({ children, isActive, close }) => {
+const ModalWrapper: React.FC<IModalWrapperProps> = ({ children, isActive, close, className }) => {
   const el = React.useMemo(() => document.createElement('div'), []);
 
   React.useEffect(() => {
@@ -32,9 +34,9 @@ const ModalWrapper: React.FC<IModalWrapperProps> = ({ children, isActive, close 
   return ReactDOM.createPortal(
     <>
       <section className={s.modal}>
-        <div className={`${s.modal_inner} grey-scroll`}>
+        <div className={cn(s.modal_inner, 'grey-scroll', className)}>
           <button type="button" onClick={() => close()} className={s.cross}>
-            <img src={cross} alt="cross" />
+            <Cross />
           </button>
           {children}
         </div>

@@ -1,22 +1,16 @@
 .footer {
+  background: url('../../../assets/img/sections/landing/body/bg_upside.png') center 0 no-repeat,
+    #000000;
+  background-size: cover;
+  padding-top: 235px;
+  padding-bottom: 107px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  padding: 32px 0;
 }
 
-.icons {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.subtitle {
-  font-family: 'FORT';
-  font-size: 20px;
-}
-
-.orange {
-  background-color: #fd7d48;
+.button {
+  font-family: 'TL', sans-serif;
+  font-size: 50px;
+  line-height: 58px;
 }

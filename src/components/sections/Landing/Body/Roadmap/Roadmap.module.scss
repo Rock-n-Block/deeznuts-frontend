@@ -1,12 +1,19 @@
 @import '../../../../../styles/mixins/media.scss';
 
 .section {
+  background: url('../../../../../assets/img/sections/landing/body/roadmap.png') center 0 no-repeat,
+    #000000;
+  -webkit-background-size: 100% 60%;
+  -moz-background-size: 100% 60%;
+  -o-background-size: 100% 60%;
+  background-size: 100% 60%;
+  background-position: top center;
   text-align: center;
   padding-bottom: 200px;
-  max-width: 1130px;
   padding: 0 15px;
   margin: 0 auto;
-  padding-top: 105px;
+  padding: 105px 170px 0;
+  position: relative;
   @include b(mobile) {
     padding-top: 0px;
   }
@@ -14,28 +21,23 @@
     padding-bottom: 50px;
   }
   &_body {
-    display: grid;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr;
-    @include b(mobile) {
-      display: flex;
-      justify-content: center;
-    }
   }
 }
 
-.subtitle {
-  color: #fd7d48;
-  font-weight: 700;
-  margin-bottom: 22px;
-}
-
 .title {
-  font-family: 'FORT';
-  font-size: 70px;
-  color: #fff;
-  margin-bottom: 90px;
-  text-transform: uppercase;
+  background: #000000;
+  box-sizing: border-box;
+  border: 4px solid #ff1616;
+  border-radius: 12px;
+  padding: 17px 30px;
+  font-size: 50px;
+  line-height: 58px;
+  font-family: 'TL';
+  width: fit-content;
+  margin: 234px auto 0;
 
   @include b(tablet) {
     font-size: 50px;
@@ -43,73 +45,60 @@
   }
 }
 
-.nuts {
-  img {
-    max-width: 100%;
-    animation: top-down 5s linear infinite forwards;
-    position: relative;
-  }
-  @include b(mobile) {
-    display: none;
-  }
-}
-
-.nuts_mob {
-  display: none;
-  @include b(mobile) {
-    display: block;
-    img {
-      max-width: 100%;
-      animation: top-down 5s linear infinite forwards;
-      position: relative;
-    }
-  }
-}
-
-@keyframes top-down {
-  0% {
-    top: 0;
-  }
-  25% {
-    top: 20px;
-  }
-  50% {
-    top: 0;
-  }
-
-  75% {
-    top: -20px;
-  }
-
-  100% {
-    top: 0;
-  }
+.subtitle {
+  font-size: 18px;
+  line-height: 32px;
+  color: #ffffff;
 }
 
 .stages {
-  max-width: 500px;
-  padding-left: 60px;
+  margin: 0 auto;
+  padding-top: 30px;
 }
 
 .stage {
+  background: linear-gradient(180deg, #280808 0%, #4e0b0b 100%);
+  border-radius: 12px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  font-size: 17px;
-  text-align: left;
-  line-height: 1.5;
-  position: relative;
-  transition-delay: 0.5s !important;
+  .percentage {
+    background: #000000;
+    border: 2px solid #acacac;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 17px 30px;
+    font-family: 'TL', sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    margin-right: 30px;
+  }
+  .description {
+    font-family: 'TL', sans-serif;
+    font-size: 22px;
+    line-height: 32px;
+  }
   & + & {
     margin-top: 25px;
   }
-  &::before {
-    content: '';
-    background: url('../../../../../assets/img/sections/landing/stages/logo25x25.png') 0 0 no-repeat;
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 50%;
-    left: -45px;
-    transform: translateY(-50%);
+  &.oddStage {
+    background: linear-gradient(180deg, #000000 0%, rgba(50, 50, 50, 0.85) 100%);
+    border: 2px solid #676767;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 7px 0.5px #787878;
+    border-radius: 12px;
+
+    .percentage {
+      background: #000000;
+      border: 2px solid #db5555;
+      box-sizing: border-box;
+      box-shadow: inset 0px 0px 7px 0.5px #ff1616;
+      border-radius: 12px;
+    }
+    .description {
+      font-family: 'MSR', sans-serif;
+      font-size: 18px;
+      text-align: left;
+    }
   }
 }

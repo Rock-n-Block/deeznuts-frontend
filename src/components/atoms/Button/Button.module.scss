@@ -5,6 +5,9 @@
   box-shadow: 0px 0px 20px 2px #ff1616;
   border-radius: 12px;
   padding: 17px 30px;
+  &.insideShadow {
+    box-shadow: inset 0px 0px 7px 0.5px #ff1616;
+  }
 
   // &.transparent {
   //   background: transparent;

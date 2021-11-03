@@ -8,16 +8,17 @@ interface IButton {
   onClick?: () => void;
   transparent?: boolean;
   className?: string;
+  insideShadow?: boolean
 }
 
-const Button: React.FC<IButton> = ({ title, href, onClick, transparent, className }) => {
+const Button: React.FC<IButton> = ({ title, href, onClick, transparent, className, insideShadow }) => {
   if (href) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noreferrer"
-        className={cn(s.button, { [s.transparent]: transparent }, className)}
+        className={cn(s.button, { [s.transparent]: transparent },{ [s.insideShadow]: insideShadow }, className)}
       >
         {title}
       </a>
@@ -27,7 +28,7 @@ const Button: React.FC<IButton> = ({ title, href, onClick, transparent, classNam
     <button
       type="button"
       onClick={() => onClick && onClick()}
-      className={cn(s.button, { [s.transparent]: transparent }, className)}
+      className={cn(s.button, { [s.transparent]: transparent },{ [s.insideShadow]: insideShadow }, className)}
     >
       {title}
     </button>

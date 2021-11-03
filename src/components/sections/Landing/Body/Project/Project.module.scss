@@ -1,0 +1,143 @@
+@import '../../../../../styles/mixins/flex.scss';
+@import '../../../../../styles/mixins/container.scss';
+@import '../../../../../styles/mixins/media.scss';
+
+.bunny {
+  width: 100%;
+}
+
+.block {
+  background: url('../../../../../assets/img/sections/landing/mint/bg.png') center center no-repeat;
+  background-size: cover;
+  padding-top: 61px;
+  // position: absolute;
+  // top: -114px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  // width: 100%;
+
+  @include b(mobile) {
+    background: none;
+    margin-bottom: 40px;
+  }
+
+  &_inner {
+    // @include flex(row, center, center, nowrap);
+    @include container;
+    // @include b(tablet) {
+    //   flex-wrap: wrap-reverse;
+    // }
+  }
+}
+
+.background {
+  width: 100%;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.head {
+  @include b(tablet) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+.left {
+  @include b(tablet) {
+    width: 100%;
+    @include flex(column, center, center);
+  }
+}
+
+.right {
+  margin-left: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  padding: 25px;
+  @include b(tablet) {
+    margin-bottom: 25px;
+    margin-left: 0;
+    padding: 0px;
+  }
+}
+
+.mint {
+  background-color: #fd7d48;
+  font-family: 'FORT';
+  color: #fff;
+  font-size: 48px;
+  padding: 25px 55px;
+  margin-bottom: 40px;
+  div {
+    max-height: 35px;
+  }
+  @include b(mobile) {
+    margin-bottom: 20px;
+  }
+  @include b(extramobile) {
+    width: 100%;
+    font-size: 40px;
+  }
+}
+
+.subtitle {
+  line-height: 1.5;
+}
+
+.nft {
+  img {
+    max-width: 100%;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: flex-end;
+  @include b(tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.title {
+  background: #000000;
+  border: 4px solid #db5555;
+  box-sizing: border-box;
+  border: 2px solid #ff1616;
+  border-radius: 12px;
+  padding: 17px 30px;
+  font-size: 50px;
+  line-height: 58px;
+  font-family: 'TL';
+  width: fit-content;
+  @include b(mobile) {
+    margin: 0 auto;
+  }
+}
+
+.text {
+  font-size: 18px;
+  line-height: 32px;
+  max-width: 450px;
+  width: 100%;
+  max-height: 320px;
+  height: 100%;
+  text-align: center;
+
+  margin-bottom: 252px;
+  @include b(tablet) {
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  font-size: 17px;
+  line-height: 1.5;
+}

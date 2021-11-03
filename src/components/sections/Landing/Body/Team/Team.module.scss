@@ -1,0 +1,97 @@
+@import '../../../../../styles/mixins/container.scss';
+@import '../../../../../styles/mixins/media.scss';
+
+.section {
+  background: url('../../../../../assets/img/sections/landing/header/bg.png') center 0 no-repeat,
+    #000000;
+  background-size: 100% 60%;
+  padding-top: 81px;
+  margin-top: 140px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // grid-template-columns: 1fr 1fr;
+  // padding-bottom: 100px;
+  // max-width: 1130px;
+  // padding: 0 15px;
+  // margin: 0 auto;
+  @include b(mobile) {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+}
+
+.content {
+  @include container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teammates {
+  display: flex;
+  margin-top: 80px;
+}
+
+.teammate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & + & {
+    margin-left: 112px;
+  }
+}
+
+.avatar {
+  width: 100%;
+  max-width: 214px;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: 'TL', sans-serif;
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+
+.title {
+  background: #000000;
+  box-sizing: border-box;
+  border: 4px solid #ff1616;
+  border-radius: 12px;
+  padding: 17px 30px;
+  font-size: 50px;
+  line-height: 58px;
+  font-family: 'TL', sans-serif;
+  width: fit-content;
+  margin: 0 auto;
+  @include b(tablet) {
+    font-size: 50px;
+  }
+  @include b(mobile) {
+    text-align: center;
+  }
+}
+
+.description {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  max-width: 236px;
+}
+
+.subtitle {
+  max-width: 500px;
+  line-height: 1.5;
+  transition-delay: 1s !important;
+  span {
+    font-weight: 700;
+    color: #fd7d48;
+  }
+  & + & {
+    margin-top: 25px;
+  }
+}

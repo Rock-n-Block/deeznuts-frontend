@@ -1,39 +1,51 @@
 import s from './Roadmap.module.scss';
+import cn from 'classnames';
 
-import deeznut from '../../../../../assets/img/sections/landing/stages/deeznut.png';
+const stages = [
+  { title: '10%', descr: 'To be revealed' },
+  {
+    title: '20%',
+    descr:
+      '20% of profit will go to community wallet on buying hidden gems (non-blue chip projects)',
+  },
+  { title: '30%', descr: 'To be revealed' },
+  {
+    title: '40%',
+    descr:
+      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
+  },
+  { title: '50%', descr: 'To be revealed' },
+  {
+    title: '60%',
+    descr:
+      'Weekly contest for a specific game (poker, meme contest, Trivia game, tabletop games). After each month a 1of 1 Metabunny will be given to the person in 1st place as well as the most participated member.',
+  },
+  { title: '70%', descr: 'To be revealed' },
+  {
+    title: '80%',
+    descr: 'Confirm on Roadmap 2.0 which will include another NFT launch ',
+  },
+  { title: '90%', descr: 'To be revealed' },
+  {
+    title: '100%',
+    descr:
+      'The development of the Meta Bunny Metaverse will kick-off and all the token holders will receive a skin of their Meta Bunny after the game launches.',
+  },
+];
 
 const Roadmap: React.FC = () => {
   return (
     <section className={s.section} id="roadmap">
-      <div className={s.nuts_mob}>
-        <img src={deeznut} alt="deeznut" />
-      </div>
-      <div className={`${s.subtitle} anim`}>Coming October 2021</div>
-      <div className={`${s.title} anim`}>Roadmap</div>
+      <div className={s.title}>Roadmap</div>
+      <span className={s.subtitle}>100 NFT pcs airdrop to first 10% buyers</span>
       <div className={s.section_body}>
-        <div className={s.nuts}>
-          <img src={deeznut} alt="deeznut" />
-        </div>
         <div className={s.stages}>
-          <div className={`${s.stage} anim`}>
-            Stage 1 (SEPTEMBER 2021) - Presale and Mint 1,000 Deez Nuts NFTs
-          </div>
-          <div className={`${s.stage} anim`}>
-            Stage 2 (SEPTEMBER 2021) - Public Sale and Mint 9,000 Deez Nuts NFTs
-          </div>
-          <div className={`${s.stage} anim`}>
-            Stage 3 (SOLD OUT) - Press articles promoting the success of the launch of Deez Nuts
-            NFTs
-          </div>
-          <div className={`${s.stage} anim`}>
-            Stage 4 (Q4 2021) - “FLAPPY SACK” game app launches with Deez Nuts NFTs available for
-            use with play to earn features with A-list celebrity marketing.
-          </div>
-          <div className={`${s.stage} anim`}>
-            Stage 5 (MAY 2022) - 20 LEGENDARY NFT holders will join the Deez Nuts OG’s team on an
-            ALL INCLUSIVE 7 night vacation in Bali meeting A-list celebrities and Deez Nuts
-            influencers valued up to $5000 per person.
-          </div>
+          {stages.map((stage: any, index: number) => (
+            <div className={cn(s.stage, { [s.oddStage]: index % 2 })}>
+              <div className={s.percentage}>{stage.title}</div>
+              <div className={s.description}>{stage.descr}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

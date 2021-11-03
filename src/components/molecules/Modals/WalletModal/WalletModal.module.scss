@@ -1,38 +1,47 @@
 @import '../../../../styles/mixins/media.scss';
 
+.wrapper {
+  background: url('../../../../assets/img/sections/landing/header/bg.png') center center no-repeat,
+    #000000;
+  background-size: cover;
+}
+
 .modal {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 36px 43px;
   text-align: center;
 }
 
 .title {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 34px;
-  font-family: 'FORT';
+  line-height: 41px;
   margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 17px;
-  margin-bottom: 22px;
+  line-height: 28px;
 }
 
 .wallet {
+  background: #000000;
+  border: 2px solid #db5555;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 2px #ff1616;
+  border-radius: 12px;
+  padding: 17px 30px;
   min-width: 330px;
+  margin-top: 30px;
   @include b(extramobile) {
     min-width: 250px;
   }
   text-align: left;
-  background: #565656;
   transition: 0.4s ease;
   &:hover {
     background: #727171;
   }
   border-radius: 10px;
   padding: 16px 28px;
-  & + & {
-    margin-top: 10px;
-  }
   display: flex;
   align-items: center;
   &_icon {

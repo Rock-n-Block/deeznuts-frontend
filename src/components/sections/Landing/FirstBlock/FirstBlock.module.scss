@@ -1,42 +1,65 @@
 @import '../../../../styles/mixins/media.scss';
 
 .block {
-  background: url('../../../../assets/img/sections/landing/first-block/bg.svg') 0 0 no-repeat,
-    #f0d961;
-  background-size: cover;
-  color: #333333;
-  height: calc(100vh + 114px);
-  @include b(tablet) {
-    height: 100%;
-  }
+//   background: url('../../../../assets/img/sections/landing/first-block/bg.png') center 0 no-repeat;
+//   // #4F4F4F;
+//   background-size: contain;
+  // height: 100vh;
+  // height: 100%;
+  // width: 100%;
 
   @include b(extramobile) {
     height: 278px;
   }
 
-  @media (min-width: 1325px) {
-    background: url('../../../../assets/img/sections/landing/first-block/bg2.svg') 0 0 no-repeat,
-      #f0d961;
-    background-size: cover;
-  }
+  // @media (min-width: 1325px) {
+  //   background: url('../../../../assets/img/sections/landing/first-block/bg2.svg') 0 0 no-repeat,
+  //     #f0d961;
+  //   background-size: cover;
+  // }
 }
 
 .block_inner {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   max-width: 1440px;
-  margin: 0 auto;
+  margin: 100px auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  padding-top: 50px;
   @include b(mobile) {
     height: 100%;
   }
-  
+
   @include b(extramobile) {
     height: 100%;
     justify-content: flex-start;
   }
+}
+
+.banner {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: -150px;
+  left: calc(50% - 313px);
+  .overview {
+    transform: translate(-29px, -56px);
+  }
+}
+
+.button {
+  font-weight: bold;
+  font-size: 18.247px;
+  line-height: 22px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  height: fit-content;
+  width: fit-content;
+  z-index: 2;
 }
 
 .left {
