@@ -59,55 +59,6 @@ const MintModal: React.FC<IMintModalProps> = ({ txHash, id }) => {
             MINT
           </button>
         </div>
-        {/* <div className={s.title}>
-          You&apos;ve minted a <br /> {type === 'LEGENDARY' ? <span>{type}</span> : type} DEEZ NUTS
-          NFT!
-        </div>
-        <div className="center">
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={`https://opensea.io/assets/${contractId}/${id - 1}`}
-            className={`${s.img} ${type === 'LEGENDARY' && s.legendary}`}
-          >
-            <ImgWithPreload preloader={loader} img={img} />
-            <div className={s.img_bg} />
-          </a>
-        </div>
-        {type === 'LEGENDARY' ? (
-          <>
-            <div className={s.subtitle}>
-              <span>CONGRATULATIONS!</span> There&apos;s only 20 legendaries out of 10,000, and
-              you&apos;ve minted one of them! This means you get to join the DEEZ NUTS Team on ALL
-              INCLUSIVE 7 NIGHT BALI VACATION CELEBRATING WITH A-LIST CELEBRITIES AND INFLUENCERS.
-            </div>
-            <div className={s.subtitle}>
-              Join the Discord and message one of the admins for more info on your trip!
-            </div>
-          </>
-        ) : (
-          <div className={s.subtitle}>
-            Common NFT holders will get access to Exclusive VIP Deeznuts crypto events in 2022 with
-            the Deez Nuts OG team and get access to the hidden DEEZ NUTS NFT Discord category. Join
-            here:
-          </div>
-        )}
-
-        <div className="center">
-          <div className={s.discord}>
-            <div className={s.discord_icon}>
-              <img src={discrod} alt="discrod" />
-            </div>
-            <a
-              href="https://discord.com/invite/deeznutsnfts"
-              rel="noreferrer"
-              target="_blank"
-              className={s.discord_link}
-            >
-              discord/deeznutsnfts
-            </a>
-          </div>
-        </div> */}
       </div>
     </ModalWrapper>
   );
