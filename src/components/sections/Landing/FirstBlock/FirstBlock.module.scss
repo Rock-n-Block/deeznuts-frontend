@@ -1,13 +1,6 @@
 @import '../../../../styles/mixins/media.scss';
 
 .block {
-//   background: url('../../../../assets/img/sections/landing/first-block/bg.png') center 0 no-repeat;
-//   // #4F4F4F;
-//   background-size: contain;
-  // height: 100vh;
-  // height: 100%;
-  // width: 100%;
-
   @include b(extramobile) {
     height: 278px;
   }
