@@ -7,9 +7,11 @@
 }
 
 .block {
-  background: url('../../../../../assets/img/sections/landing/mint/bg.png') center center no-repeat;
+  padding: 61px 170px 0;
+  height:400px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.85)),
+    url('../../../../../assets/img/sections/landing/mint/bg.png') center center no-repeat;
   background-size: cover;
-  padding-top: 61px;
   // position: absolute;
   // top: -114px;
   // left: 50%;
@@ -18,7 +20,7 @@
 
   @include b(mobile) {
     background: none;
-    margin-bottom: 40px;
+    padding: 61px 0 0 0;
   }
 
   &_inner {
@@ -39,9 +41,10 @@
 
 .head {
   @include b(tablet) {
+    margin-bottom: 20px;
+
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
   }
 }
 
@@ -54,24 +57,28 @@
 
 .right {
   margin-left: 50px;
+  padding: 25px;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 7px;
-  padding: 25px;
   @include b(tablet) {
     margin-bottom: 25px;
     margin-left: 0;
-    padding: 0px;
+    padding: 0;
   }
 }
 
 .mint {
-  background-color: #fd7d48;
-  font-family: 'FORT';
-  color: #fff;
-  font-size: 48px;
-  padding: 25px 55px;
   margin-bottom: 40px;
+  padding: 25px 55px;
+
+  font-family: 'FORT';
+  font-size: 48px;
+
+  color: #fff;
+  background-color: #fd7d48;
+
   div {
     max-height: 35px;
   }
@@ -80,6 +87,7 @@
   }
   @include b(extramobile) {
     width: 100%;
+
     font-size: 40px;
   }
 }
@@ -96,7 +104,7 @@
 
 .info {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   @include b(tablet) {
     display: flex;
     justify-content: center;
@@ -104,33 +112,41 @@
 }
 
 .title {
-  background: #000000;
-  border: 4px solid #db5555;
+  padding: 17px 45px;
+
   box-sizing: border-box;
-  border: 2px solid #ff1616;
-  border-radius: 12px;
-  padding: 17px 30px;
+  width: fit-content;
+
+  font-family: 'TL';
   font-size: 50px;
   line-height: 58px;
-  font-family: 'TL';
-  width: fit-content;
+
+  background: #000;
+  border: 4px solid #db5555;
+  border: 2px solid #ff1616;
+  border-radius: 12px;
   @include b(mobile) {
     margin: 0 auto;
+
+    font-size: 25px;
+    line-height: 29px;
   }
 }
 
 .text {
+  margin-bottom: 252px;
+
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  max-height: 320px;
+
   font-size: 18px;
   line-height: 32px;
-  max-width: 450px;
-  width: 100%;
-  max-height: 320px;
-  height: 100%;
-  text-align: center;
-
-  margin-bottom: 252px;
+  text-align: left;
   @include b(tablet) {
     margin-bottom: 20px;
+
     font-size: 15px;
     line-height: 18px;
   }
@@ -138,6 +154,83 @@
 
 .subtitle {
   margin-bottom: 30px;
+
   font-size: 17px;
   line-height: 1.5;
 }
+
+.info{
+  text-align: center;
+}
+
+
+.introTab {
+  position :relative;
+  z-index: 1;
+  width: 90%;
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carte_button {
+  position :relative;
+  z-index: 3;
+  background-color: yellow;
+  color:#000;
+  width: 100px;
+  height: 50px;
+  float:left;
+}
+.carte_button2{
+  position :relative;
+  z-index: 3;
+  background-color: #666;
+  color:#000;
+  width: 100px;
+  height: 50px;
+  float:left;
+}
+
+.carte {
+  position :absolute;
+  top: 0px;
+  z-index: 2;
+  background-color: green;
+  width: auto;
+  display:none;
+  height: 0%;
+  margin: auto;
+  transition: height 500ms;
+}
+.carte2 {
+  position :absolute;
+  top: 0px;
+  z-index: 2;
+  background-color: #000;
+  width: auto;
+  display:none;
+  height: 0%;
+  margin: auto;
+  transition: height 500ms;
+}
+.carte_button:hover + .carte {
+  border-top: none;
+  top: 50px;
+  height: 300px;
+  display:block;
+}
+.carte_button2:hover + .carte2 {
+  border-top: none;
+  top: 50px;
+  height: 300px;
+  display:block;
+}
+
+.carte:hover {
+  height: 300px;
+}
+.carte2:hover {
+  height: 300px;
+}
+

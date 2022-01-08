@@ -1,0 +1,160 @@
+@import '../../../../../styles/mixins/media.scss';
+
+.section {
+  background: url('../../../../../assets/img/sections/landing/body/roadmap.png') center 0 no-repeat,
+  #000;
+  background-size: 100%;
+  background-color:rgba(0,0,0,.8);
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    padding-bottom: 120px;
+    @include b(mobile) {
+      display:block;
+      padding: 0px;
+    }
+    .text {
+      width: 70%;
+      margin: auto;
+      text-align: center;
+      line-height: 30px;
+      margin-bottom: 10px;
+      @include b(mobile) {
+        width: 100%;
+        padding-bottom: 50px;
+      }
+    }
+  }
+
+  @include b(mobile) {
+    padding: 0;
+  }
+}
+
+.title {
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 17px 30px;
+  box-sizing: border-box;
+  width: fit-content;
+  font-family: 'TL', sans-serif;
+  font-size: 50px;
+  line-height: 58px;
+  border-radius: 12px;
+  z-index: 1;
+  @include b(mobile) {
+    margin-top: 40px;
+    font-size: 25px;
+    line-height: 29px;
+  }
+}
+
+.intro {
+  display:flex;
+  position:relative;
+  width:50%;
+  height:auto;
+  margin:auto;
+  @include b(mobile) {
+    width:100%;
+  }
+}
+
+.item {
+  text-align: center;
+  width:33.3%;
+  height: 50px;
+  line-height:50px;
+  background-color:#000;
+  cursor: pointer;
+  transition: 0.4s linear;
+
+  &Active {
+    background: rgba(0,0,0,.7);
+  }
+  @include b(mobile) {
+    max-width: 100%;
+  }
+
+  & + & {
+    margin-top: 0px;
+  }
+
+  &_title {
+    font-size: 20px;
+    transition: 0.4s ease;
+    position: relative;
+
+    .arrow {
+      position: absolute;
+      top: calc(50% - 7px / 2);
+      right: 18px;
+      transition: 0.5s;
+    }
+
+    &Active {
+      font-weight: bold;
+      background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
+      .arrow {
+        position: absolute;
+        top: calc(50% - 7px / 2);
+        right: 18px;
+        // transform: rotate(180deg);
+        transition: 0.5s;
+      }
+    }
+    @include b(mobile) {
+      font-size: 14px;
+      .arrow {
+        right: 5px;
+      }
+    }
+  }
+
+  &_subtitle {
+    max-height: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+    opacity: 0;
+    transition: 0.4s ease;
+    position:absolute;
+    z-index:999;
+    left:0;
+    padding:30px 0px;
+    @include b(mobile) {
+      
+    }
+    span{
+      display:block;
+      margin:20px auto;
+      width:70%;
+    }
+    img{
+      width:60%;
+    }
+    &.active {
+      min-height: 400px;
+      width: 100%;
+      background-color:rgba(0,0,0,.9);
+      color:#fff;
+      opacity: 1;
+      @include b(mobile) {
+        height: 330px;
+      }
+    }
+    @include b(mobile) {
+      font-size: 14px;
+    }
+  }
+}
+
+.background {
+  width: 100%;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

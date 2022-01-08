@@ -1,53 +1,93 @@
+@import '../../../../../styles/mixins/media.scss';
+
 .section {
-  background-color: #000000;
+  position: relative;
+
+  padding-top: 111px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 111px;
-  position: relative;
+
+  background-color: #000;
 }
 
 .nfts {
-  display: flex;
   margin: 0 auto;
+
+  display: flex;
+  @include b(mobile) {
+    display: none;
+  }
+
+  &Mobile {
+    display: none;
+    @include b(mobile) {
+      display: block;
+    }
+  }
+}
+
+.slide {
+  max-width: 100vw;
 }
 
 .nft {
   & + & {
     margin-left: 10px;
+    @include b(mobile) {
+      margin-left: 0;
+    }
+  }
+  @include b(mobile) {
+    padding: 5px;
+
+    width: fit-content;
   }
 }
 
-.image{
+.image {
   width: 100%;
+  @include b(mobile) {
+    width: fit-content;
+  }
 }
 
 .head {
-  font-family: 'MSR', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
+
   margin-bottom: 17px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: 42px;
+
+  font-family: 'MSR', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
 }
 
-.pages{
+.pages {
   position: absolute;
-  bottom: -97px;
   z-index: 1;
+  bottom: -97px;
+  @include b(mobile) {
+    display: none;
+  }
 }
 
 .page {
+  font-family: 'TL', sans-serif;
   font-size: 25px;
   line-height: 29px;
-  font-family: 'TL', sans-serif;
+
   & + & {
     margin-left: 15px;
   }
+
   &.active {
     background: #ea3b3b;
   }

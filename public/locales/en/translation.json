@@ -1,0 +1,122 @@
+{
+  "navigation": {
+    "project": "project",
+    "roadmap": "roadmap",
+    "team": "team",
+    "faq": "faq"
+  },
+  "button": {
+    "connect": "connect wallet",
+    "mint": "mint",
+    "bunnyverse": "bunnyverse",
+    "gamefi": "gamefi",
+    "staking": "staking",
+    "join": "Join Discord",
+    "ok": "ok"
+  },
+  "intro": {
+    "text": "Meta Bunny consists of 10,000 Bunnies completely generated via computer algorithm. Their existence is to scare people but unfortunately not all of them looks scary. Sadly some are even cute! Every Bunny has a scary meter which represents how scary are they. This will be based on their accessory, appearance and the location they choose to scare people.",
+    "preview": {
+      "text1.1": "Being the NFT holder will grant you access to our Closed Alpha testing for the Bunnyverse. Not only will you be able to traverse the Bunnyverse, as an NFT holder you will also have a vote on the direction on how you want the project to turn out.",
+      "text2": "We will be creating a game for Metabunny which you will run around and try to scare people. The more the people felt scared, the more in game tokens ($CARATS) you can earn. Therefore your Metabunny’s Scary Meter will affect how much in game tokens you can earn!",
+      "text3.1": "NFT holders can also choose to stake Metabunnies to earn $CARATS and can be used for: 1) in game token for the upcoming Bunnyverse Project 2) To purchase future exclusive merchandise",
+      "text4": "If you’re a fan of our campaign for closer diplomatic relations between Metabunny, show your pride with our wide range of merchandise below.",
+      "bunnyverse": "bunnyverse",
+      "gamefi": "gamefi",
+      "staking": "staking",
+      "merchandise": "Merchandise"
+    }
+  },
+  "preview": "preview",
+  "roadmap": {
+    "percents": {
+      "10": "100 NFT pcs airdrop to first 10% buyers",
+      "20": "20% of profit will go to community wallet on buying hidden gems (non-blue chip projects)",
+      "30": "Collaboration with other NFT projects",
+      "40": "Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)",
+      "50": "50% of all royalties will be given back to each Metabunny NFT holders",
+      "60": "Weekly contest for a specific game (poker, meme contest, Trivia game, tabletop games). After each month a 1of 1 Metabunny will be given to the person in 1st place as well as the most participated member.",
+      "70": "Weekly floor sweeping",
+      "80": "Confirm on Roadmap 2.0 which will include another NFT launch",
+      "90": "Free air drop for all NFT holders (separate from Roadmap 2.0)",
+      "100": "The development of the Meta Bunny Metaverse will kick-off and all the token holders will receive a skin of their Meta Bunny after the game launches."
+    }
+  },
+  "team": {
+    "team1": {
+      "title": "RICHI",
+      "text": "He has worked in a famous auction house as a Contemporary Art Specialist and has been obsessed with NFTs after being introduced by a friend. He is also a former World of Warcraft Guild master."
+    },
+    "team2": {
+      "title": "ANSON",
+      "text": "Lead Artist for the project. Former 3D animator at a VR game company. Passionate in playing video games and watching Japanese anime. He has sacraficed his life for this project."
+    },
+    "team3": {
+      "title": "ZEN",
+      "text": "ZEN is the Head of Cryptocurrency at HKD.com. He was introduced to Bitcoin since its inception, and began researching and investing heavily into crypto assets since the birth of Ethereum."
+    }
+  },
+  "community": {
+    "title": "community",
+    "text": "We are a group of people that love games and fun, so we want the community to be like that as well! There will be contests held regularly including but not limited to Trivia, Poker nights, Tabletop games, Puzzle games, Meme contests and many more which some will be decided via voting among the community. There will be scoreboards of each game and the member ranked 1st as well as the most participated member of each month will receive a special 1 of 1 Metabunny."
+  },
+  "faq": {
+    "faq1": {
+      "title": "What is an NFT?",
+      "text": "Non-Fungible Token (NFT) is a unique and non-interchangeable unit of data on the blockchain stored on a digital ledger. Its purpose is to establish the proof of ownership of digital assets such as jpg, videos, gifs and more."
+    },
+    "faq2": {
+      "title": "What is a Metabunny?",
+      "text": "Metabunny is an NFT created by a team of NFT enthusiasts who would like to build a community full of fun and games! Every Metabunny has a scary meter which will determine how scary or cute the bunny is. The more scary you are, or in some cases the less scary you are, the more rewards you will be able to yield!"
+    },
+    "faq3": {
+      "title": "What can I do with my Metabunny?",
+      "text": "Each Metabunny acts as a membership to join our community where many different events such as poker nights, video game contests, art contests, trivia game awaits you. You will also be able to buy merchandises as well as receiving other benefits exclusive to Metabunny owners. Be sure to change your social media’s profile picture and tell your friends and family about it!"
+    },
+    "faq4": {
+      "title": "How can I get a Metabunny?",
+      "text": "In order to get a Metabunny, all you need is a MetaMask wallet with some Ethereum in it, then you are good to go!"
+    },
+    "faq5": {
+      "title": "Where can I get my Metabunny?",
+      "text": "You can get a Metabunny through our website when our presale and public sale launches. After that, it will be available for purchase on Opensea for second hand purchases."
+    },
+    "faq6": {
+      "title": "When can I get my Metabunny?",
+      "text": "Stay tuned for updates on our Twitter, Official Website, Discord Channel for any news regarding to the launch time and our future plans!"
+    },
+    "faq7": {
+      "title": "How to get OG status?",
+      "text": "We will be giving out OG status to the first 500 discord members that joined the server. Please be sure to share with any friends or fam that might be interested."
+    }
+  },
+  "account": {
+    "title": "account",
+    "text": "Connected with",
+    "disconnect": "Disconnect",
+    "delete": "If you want to disconnect your wallet please delete metabunny.io from connected sites in MetaMask",
+    "copy": "Copy address",
+    "success": "Success!"
+  },
+  "mint": {
+    "title": "mint in live"
+  },
+  "toast": {
+    "connected": "Wallet connected: ",
+    "disconnected": "Wallet disconnected",
+    "allMinted": "There is not enough tokens to mint",
+    "pausedMint": "Minting is paused now",
+    "mintProgress": "Mint in progress. View on ",
+    "minted1": "Minted",
+    "minted2": "bunnies. View on ",
+    "minted3": "Minted 1 bunny. View on ",
+    "error": "Something went wrong",
+    "whitelist": "Your address not in the whitelist"
+  },
+  "modal": {
+    "connect": {
+      "title": "Select a wallet",
+      "subtitle": "Connect a wallet"
+    }
+  }
+}

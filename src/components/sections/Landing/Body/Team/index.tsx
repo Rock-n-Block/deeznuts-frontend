@@ -1,40 +1,35 @@
-import s from './Team.module.scss';
+import { useTranslation } from 'react-i18next';
 import ellipse from '../../../../../assets/img/sections/landing/body/ellipse.png';
-
-const teammates = [
-  {
-    avatar: ellipse,
-    name: 'Name Name',
-    descr:
-      'Text crowdsourced encyclopedia that rewards users for contributing and peer reviewing information. Lunyr was raised almost 48 000 ETH during ICO on April’17. It w',
-  },
-  {
-    avatar: ellipse,
-    name: 'Name Name',
-    descr:
-      'Text crowdsourced encyclopedia that rewards users for contributing and peer reviewing information. Lunyr was raised almost 48 000 ETH during ICO on April’17. It w',
-  },
-  {
-    avatar: ellipse,
-    name: 'Name Name',
-    descr:
-      'Text crowdsourced encyclopedia that rewards users for contributing and peer reviewing information. Lunyr was raised almost 48 000 ETH during ICO on April’17. It w',
-  },
-];
+import ellipse2 from '../../../../../assets/img/sections/landing/body/ellipse2.png';
+import ellipse3 from '../../../../../assets/img/sections/landing/body/ellipse3.png';
+import s from './Team.module.scss';
 
 const Team: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className={s.section} id="team">
-      <div className={s.title}>Team</div>
+      <div className={s.title}>{t('navigation.team')}</div>
       <div className={s.content}>
         <div className={s.teammates}>
-          {teammates.map((teammate: any) => (
-            <div className={s.teammate}>
-              <img src={teammate.avatar} alt="avatar" className={s.avatar} />
-              <span className={s.name}>{teammate.name}</span>
-              <span className={s.description}>{teammate.descr}</span>
-            </div>
-          ))}
+          <div className={s.teammate}>
+            <img src={ellipse} alt="avatar" className={s.avatar} />
+            <span className={s.name}>Riichi</span>
+            <span className={s.description}>{t('team.team1.text')}</span>
+          </div>
+        </div>
+        <div className={s.teammates}>
+          <div className={s.teammate}>
+            <img src={ellipse2} alt="avatar" className={s.avatar} />
+            <span className={s.name}>Anson</span>
+            <span className={s.description}>{t('team.team2.text')}</span>
+          </div>
+        </div>
+        <div className={s.teammates}>
+          <div className={s.teammate}>
+            <img src={ellipse3} alt="avatar" className={s.avatar} />
+            <span className={s.name}>ZEN</span>
+            <span className={s.description}>{t('team.team3.text')}</span>
+          </div>
         </div>
       </div>
     </section>

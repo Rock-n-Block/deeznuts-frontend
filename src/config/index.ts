@@ -6,12 +6,9 @@ export const show_logs = true;
 
 export const is_presale = false;
 
-export const open_sea_link =
-  '';
+export const open_sea_link = '';
 
-export const backendUrl = is_production
-  ? ''
-  : '';
+export const backendUrl = is_production ? '' : '';
 
 export const chain: IChainConfig = {
   name: is_production ? 'Ethereum Mainnet' : 'Ethereum Testnet Rinkeby',
@@ -26,12 +23,13 @@ export const chain: IChainConfig = {
     decimals: 18,
   },
   blockExp: is_production ? '' : '',
+  contractAddress: is_production ? '' : '0xF236E11BcA8480b360F1Ff21F45644d481379a14',
 };
 
 export const connectWalletConfig: IConnectWallet = {
   wallets: ['MetaMask', 'WalletConnect'],
   network: {
-    name: chain.name,
+    chainName: chain.name,
     chainID: chain.id,
   },
   provider: {

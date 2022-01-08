@@ -13,6 +13,7 @@ export interface IChainConfig {
     decimals: number;
   };
   blockExp: string;
+  contractAddress: string
 }
 
 export interface IConnectWallet {

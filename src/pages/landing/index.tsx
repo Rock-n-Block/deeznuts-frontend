@@ -1,8 +1,8 @@
 import { ToastContainer } from 'react-toastify';
 
+import LandingBody from '../../components/sections/Landing/Body/index';
 import FirstBlock from '../../components/sections/Landing/FirstBlock/index';
 import FirstBlockPresale from '../../components/sections/Landing/FirstBlockPresale/index';
-import LandingBody from '../../components/sections/Landing/Body/index';
 import { is_presale } from '../../config/index';
 
 const Landing: React.FC = () => {

@@ -1,15 +1,16 @@
 @import '../../../../styles/mixins/media.scss';
 
 .block {
-//   background: url('../../../../assets/img/sections/landing/first-block/bg.png') center 0 no-repeat;
-//   // #4F4F4F;
-//   background-size: contain;
+    // background: url('../../../../assets/img/sections/landing/body/bg_upside.png') bottom no-repeat;
+    // background-size: contain;
   // height: 100vh;
   // height: 100%;
   // width: 100%;
-
-  @include b(extramobile) {
-    height: 278px;
+  transform: translateY(-50px);
+  overflow: hidden;
+  position: relative;
+  @include b(mobile){
+    transform: none;
   }
 
   // @media (min-width: 1325px) {
@@ -18,54 +19,57 @@
   //   background-size: cover;
   // }
 }
+.bunny {
+  width: 100%;
+  @include b(tablet){
+    width: 100%;
+    transform: none;
+  }
+}
+
+.bg{
+  background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 58.91%);
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+}
 
 .block_inner {
-  max-width: 1440px;
-  margin: 100px auto 0;
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: relative;
   align-items: center;
-  padding-top: 50px;
+
+  max-width: 1440px;
   @include b(mobile) {
     height: 100%;
   }
 
   @include b(extramobile) {
-    height: 100%;
     justify-content: flex-start;
-  }
-}
 
-.banner {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: -150px;
-  left: calc(50% - 313px);
-  .overview {
-    transform: translate(-29px, -56px);
+    height: 100%;
   }
 }
 
 .button {
-  font-weight: bold;
-  font-size: 18.247px;
-  line-height: 22px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  height: fit-content;
-  width: fit-content;
   z-index: 2;
+  font-size: 39.2562px;
+  line-height: 45px;
+  position: absolute;
+  font-family: 'TL', sans-serif;
+  top: 30%;
 }
 
 .left {
   img {
-    max-width: 100%;
     position: relative;
+
+    max-width: 100%;
+
     animation: top-down 3s linear infinite forwards;
     @include b(extramobile) {
       max-width: 200px;
@@ -77,9 +81,11 @@
   0% {
     top: 0;
   }
+
   25% {
     top: 10px;
   }
+
   50% {
     top: 0;
   }
@@ -102,13 +108,15 @@
 }
 
 .title {
-  font-size: 100px;
-  font-family: 'FORT';
   margin-bottom: 20px;
+
+  font-family: 'FORT';
+  font-size: 100px;
 }
 
 .subtitle {
-  font-size: 17px;
   max-width: 500px;
+
+  font-size: 17px;
   line-height: 1.5;
 }

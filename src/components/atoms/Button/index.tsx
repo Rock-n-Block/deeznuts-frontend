@@ -1,6 +1,7 @@
 import React from 'react';
-import s from './Button.module.scss';
 import cn from 'classnames';
+
+import s from './Button.module.scss';
 
 interface IButton {
   title: string;
@@ -8,17 +9,31 @@ interface IButton {
   onClick?: () => void;
   transparent?: boolean;
   className?: string;
-  insideShadow?: boolean
+  insideShadow?: boolean;
+  image?: string;
 }
 
-const Button: React.FC<IButton> = ({ title, href, onClick, transparent, className, insideShadow }) => {
+const Button: React.FC<IButton> = ({
+  title,
+  href,
+  onClick,
+  transparent,
+  className,
+  insideShadow,
+  image,
+}) => {
   if (href) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noreferrer"
-        className={cn(s.button, { [s.transparent]: transparent },{ [s.insideShadow]: insideShadow }, className)}
+        className={cn(
+          s.button,
+          { [s.transparent]: transparent },
+          { [s.insideShadow]: insideShadow },
+          className,
+        )}
       >
         {title}
       </a>
@@ -28,8 +43,14 @@ const Button: React.FC<IButton> = ({ title, href, onClick, transparent, classNam
     <button
       type="button"
       onClick={() => onClick && onClick()}
-      className={cn(s.button, { [s.transparent]: transparent },{ [s.insideShadow]: insideShadow }, className)}
+      className={cn(
+        s.button,
+        { [s.transparent]: transparent },
+        { [s.insideShadow]: insideShadow },
+        className,
+      )}
     >
+      {image && <img src={image} alt="img" className={s.image} />}
       {title}
     </button>
   );

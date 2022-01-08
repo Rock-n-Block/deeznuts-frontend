@@ -1,21 +1,35 @@
-@import '../../../../styles/mixins/media.scss';
+@import "../../../../styles/mixins/media.scss";
 
 .wrapper {
-  background: url('../../../../assets/img/sections/landing/header/bg.png') center center no-repeat,
-    #000000;
+  background: url("../../../../assets/img/sections/landing/header/bg.png")
+      center center no-repeat,
+    #000;
   background-size: cover;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s ease all;
+  border-radius: 5px;
 }
 
 .modal {
-  padding: 20px 36px 43px;
+  padding: 50px 5px;
+  width: 500px;
   text-align: center;
+  @include b(mobile) {
+    width: 400px;
+  }
+  @include b(extramobile) {
+    width: 300px;
+  }
 }
 
 .title {
-  font-weight: 500;
-  font-size: 34px;
-  line-height: 41px;
   margin-bottom: 10px;
+  font-size: 36px;
+  letter-spacing: 4px;
+  font-family: "TL", sans-serif;
+  @include b(mobile) {
+    font-size: 28px;
+  }
 }
 
 .subtitle {
@@ -24,27 +38,112 @@
 }
 
 .wallet {
-  background: #000000;
-  border: 2px solid #db5555;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  height: 70px;
   box-sizing: border-box;
-  box-shadow: 0px 0px 20px 2px #ff1616;
-  border-radius: 12px;
-  padding: 17px 30px;
   min-width: 330px;
-  margin-top: 30px;
+  text-align: right;
+  background: #000;
+  border: 1px solid #db5555;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px #ff1616;
+  transition: 0.4s ease;
+
+  &:hover {
+    background: rgba(255, 230, 110, 1);
+    color: #000;
+  }
+
+  &_icon {
+    width: 100px;
+    margin-right: 30px;
+    @include b(mobile) {
+      width: 60px;
+    }
+  }
   @include b(extramobile) {
     min-width: 250px;
   }
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  max-width: 410px;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.wallet_address {
+  background: linear-gradient(180deg, #000000 0%, rgba(50, 50, 50, 0.85) 100%);
+  border: 2px solid #676767;
+  box-sizing: border-box;
+  box-shadow: inset 0px 2px 12px 5px #787878;
+  border-radius: 12px;
+  position: relative;
+  padding: 12px 18px;
+  margin: 14px auto 30px;
+  width: 100%;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
   text-align: left;
-  transition: 0.4s ease;
-  &:hover {
-    background: #727171;
-  }
-  border-radius: 10px;
-  padding: 16px 28px;
   display: flex;
   align-items: center;
-  &_icon {
-    margin-right: 30px;
+  justify-content: space-between;
+}
+
+.copy {
+  position: relative;
+  cursor: pointer;
+}
+
+.copy:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  border-bottom: 1px solid black;
+  visibility: hidden;
+  top: -44px;
+  left: -42px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.disconnect {
+  background-color: transparent;
+  &_wrapper {
+    display: flex;
+    align-items: center;
   }
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.logout {
+  font-family: 'TL', sans-serif;
+  font-size: 22px;
+  line-height: 25px;
+  width: 128.23px;
+  height: 59.97px;
+  margin: 0 auto;
 }

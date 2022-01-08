@@ -1,16 +1,90 @@
+@import '../../../styles/mixins/media.scss';
+
 .footer {
-  background: url('../../../assets/img/sections/landing/body/bg_upside.png') center 0 no-repeat,
-    #000000;
-  background-size: cover;
-  padding-top: 235px;
-  padding-bottom: 107px;
+  background: linear-gradient(0deg, #300711 79.45%, rgba(35, 10, 16, 0) 113.22%);
+  background-color: rgba(0, 0, 0, 0.8);
+  background-size: 100%;
+  position: relative;
+}
+
+.container {
+  padding-top: 96px;
+  padding-bottom: 17px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  & > * {
+    z-index: 9;
+  }
 }
 
 .button {
   font-family: 'TL', sans-serif;
-  font-size: 50px;
-  line-height: 58px;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.2em;
+  margin: 30px auto 45px;
+  background: linear-gradient(180deg, #000000 0%, rgba(50, 50, 50, 0.85) 100%);
+  border: 2px solid #676767;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 7px 0.5px #787878;
+  border-radius: 12px;
+  @include b(mobile) {
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.2em;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  @include b(mobile) {
+    flex-direction: column;
+  }
+
+  .link {
+    font-family: 'TL', 'Caveat', sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    color: #fff;
+
+    @include b(tablet) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  .link + .link {
+    margin-left: 40px;
+
+    @include b(tablet) {
+      margin-left: 20px;
+    }
+
+    @include b(mobile) {
+      margin-left: 0;
+      margin-top: 40px;
+    }
+  }
+}
+
+.bgImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  width: 100%;
+}
+.logoImg {
+  margin-bottom: 30px;
 }

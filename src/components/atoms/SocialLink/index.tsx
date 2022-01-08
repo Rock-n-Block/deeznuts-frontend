@@ -1,10 +1,10 @@
 import React from 'react';
 
-import twitter from '../../../assets/img/icons/twitter.svg';
-import insta from '../../../assets/img/icons/insta.svg';
 import discord from '../../../assets/img/icons/discord.svg';
 import facebook from '../../../assets/img/icons/facebook.svg';
+import insta from '../../../assets/img/icons/insta.svg';
 import telegram from '../../../assets/img/icons/telegram.svg';
+import twitter from '../../../assets/img/icons/twitter.svg';
 
 import s from './SocialIcon.module.scss';
 

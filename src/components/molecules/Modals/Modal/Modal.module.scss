@@ -1,34 +1,50 @@
+@import '../../../../styles/mixins/media.scss';
+
 .modal {
-  z-index: 1000;
   position: fixed;
-  background-color: rgba($color: #000000, $alpha: 0.2);
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
 
   padding: 10px;
 
   width: 100%;
   height: 100%;
 
-  top: 50%;
-  left: 50%;
+  background-color: rgba($color: #000, $alpha: 0.7);
+
   transform: translate(-50%, -50%);
 
   &_inner {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 90%;
-    max-width: 90%;
+
     overflow: auto;
+
+    max-width: 90%;
+    max-height: 90%;
+
+    transform: translate(-50%, -50%);
   }
 }
 
 .cross {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  svg {
-    fill: #fff;
+  width:35px;
+  height:35px;
+  top: 0px;
+  right: 0px;
+  background-color:#000;
+  z-index: 5;
+  @include b(mobile) {
+  }
+  .btnClose{
+    position: absolute;
+    left:0;
+    right: 0;
+    top:0;
+    bottom:0;
+    margin: auto;
   }
 }

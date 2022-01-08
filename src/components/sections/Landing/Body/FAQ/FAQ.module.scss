@@ -1,38 +1,43 @@
 @import '../../../../../styles/mixins/media.scss';
 
 .section {
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7)),
-    url('../../../../../assets/img/sections/landing/body/faq.png') center 0 no-repeat;
-  background-size: 100% 818px;
-  padding: 120px;
-  margin-top: 139px;
+  background: url('../../../../../assets/img/sections/landing/body/roadmap.png') center 0 no-repeat,
+  #000;
+  background-size: 100%;
+  background-color:rgba(0,0,0,.8);
   &_inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position:relative;
+    padding-bottom: 120px;
+    
+  @include b(mobile) {
+    padding: 10px;
+  }
   }
 
   @include b(mobile) {
-    padding: 0 15px;
-    padding-bottom: 75px;
+    padding: 0;
   }
 }
 
 .title {
-  background: #000000;
-  box-sizing: border-box;
-  border: 4px solid #ff1616;
-  border-radius: 12px;
+  margin: 0 auto;
+  margin-top: 120px;
   padding: 17px 30px;
+  box-sizing: border-box;
+  width: fit-content;
+  font-family: 'TL', sans-serif;
   font-size: 50px;
   line-height: 58px;
-  font-family: 'TL', sans-serif;
-  width: fit-content;
-  margin: 0 auto;
-  margin-top: 357px;
+  border-radius: 12px;
+  z-index: 1;
   @include b(mobile) {
-    font-size: 50px;
+    margin-top: 40px;
+    font-size: 25px;
+    line-height: 29px;
   }
 }
 
@@ -40,52 +45,87 @@
   margin-top: 80px;
   @include b(mobile) {
     margin-top: 40px;
+    padding: 0 15px;
   }
 }
 
 .item {
-  cursor: pointer;
+  padding: 30px 15px;
   overflow: hidden;
-  padding: 12px 18px;
-  background: linear-gradient(180deg, #000000 0%, rgba(50, 50, 50, 0.85) 100%);
-  border: 2px solid #676767;
   box-sizing: border-box;
-  box-shadow: inset 0px 0px 7px 0.5px #787878;
-  border-radius: 12px;
-  transition: 0.4s linear;
   max-width: 1000px;
+  cursor: pointer;
+  background-color: rgba(65,15,20,.7);
+  border-radius: 12px;
+  position:relative;
+  transition: 0.4s linear;
+
   &Active {
-    background: linear-gradient(180deg, #780a0a 0%, rgba(0, 0, 0, 0.85) 100%);
+    background: rgba(0,0,0,.7);
   }
   @include b(mobile) {
     max-width: 100%;
   }
+
   & + & {
     margin-top: 10px;
   }
+
   &_title {
     font-family: 'MSR', sans-serif;
-    font-size: 18px;
-    transition: 0.4s ease;
+    font-size: 24px;
     line-height: 32px;
+    transition: 0.4s ease;
+    position: relative;
+
+    .arrow {
+      position: absolute;
+      top: calc(50% - 7px / 2);
+      right: 18px;
+      transition: 0.5s;
+    }
+
     &Active {
       font-weight: bold;
+      .arrow {
+        position: absolute;
+        top: calc(50% - 7px / 2);
+        right: 18px;
+        // transform: rotate(180deg);
+        transition: 0.5s;
+      }
     }
     @include b(mobile) {
-      font-size: 30px;
+      font-size: 18px;
+      line-height:20px;
+      .arrow {
+        right: -10px;
+      }
     }
   }
+
   &_subtitle {
-    max-height: 0px;
-    opacity: 0;
-    font-size: 18px;
-    line-height: 32px;
-    transition: 0.4s ease;
+    max-height: 0;
+    font-size: 14px;
     font-weight: normal;
+    line-height: 24px;
+    opacity: 0;
+    transition: 0.4s ease;
+
     &.active {
       margin-top: 10px;
-      opacity: 1;
       max-height: 500px;
+      opacity: 1;
     }
+    @include b(mobile) {
+      font-size: 14px;
+    }
+  }
+}
+
+.background {
+  width: 100%;
+  @media (min-width: 768px) {
+    display: none;
   }
 }

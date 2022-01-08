@@ -13,8 +13,8 @@ interface IModalsContext {
 
 const getInfoFromBackend = async () => {
   let result = {
-    contract_address: '0x0'
-  }
+    contract_address: '0x0',
+  };
   try {
     const backendData = await fetch(`${backendUrl}info/?format=json`);
     const data = await backendData.json();

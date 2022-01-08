@@ -221,9 +221,10 @@ a:hover {
  */
 
 img {
+  vertical-align: middle;
+
   border: 0; /* 1 */
   -ms-interpolation-mode: bicubic; /* 2 */
-  vertical-align: middle;
 }
 
 /**

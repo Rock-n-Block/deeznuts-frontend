@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import cn from 'classnames';
+
+import arrow from '../../../../../assets/img/icons/arrow.svg';
+import arrowWhite from '../../../../../assets/img/icons/arrowWhite.svg';
 
 import s from './FAQ.module.scss';
-
-import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 interface IFAQItemProps {
   title: string;
@@ -10,7 +13,7 @@ interface IFAQItemProps {
 }
 
 const FAQItem: React.FC<IFAQItemProps> = ({ title, subtitle }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
@@ -20,76 +23,59 @@ const FAQItem: React.FC<IFAQItemProps> = ({ title, subtitle }) => {
       role="button"
       onClick={() => setIsOpen(!isOpen)}
     >
-      <div className={cn(s.item_title, { [s.item_titleActive]: isOpen })}>{title}</div>
+      <div className={cn(s.item_title, { [s.item_titleActive]: isOpen })}>
+        {title}
+        <img src={isOpen ? arrowWhite : arrow} alt="arrow" className={s.arrow} />
+      </div>
       <div className={cn(s.item_subtitle, { [s.active]: isOpen })}>{subtitle}</div>
     </div>
   );
 };
 
-const FaqData = [
-  {
-    id: 1,
-    title: '– What are the creation fees for the Token contract?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 2,
-    title: '– Can I use my Token contract with other contracts?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 3,
-    title: '– How To Add custom ERC20 Tokens in MEW wallet',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 4,
-    title: '– Can I use the same token in the preSALE and publicSALE contracts?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 5,
-    title: '– How to verify my token contract on Etherscan?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 6,
-    title: '– What are the creation fees for the Token contract?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 7,
-    title: '– Can I use my Token contract with other contracts?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 8,
-    title: '– How To Add custom ERC20 Tokens in MEW wallet',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 9,
-    title: '– Can I use the same token in the preSALE and publicSALE contracts?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-  {
-    id: 10,
-    title: '– How to verify my token contract on Etherscan?',
-    subtitle:
-      'Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased) Daily Crypto raffle to all members (every day will be different for which crypto be drawn from the raffle (If OG members are chosen, the reward will be increased)',
-  },
-];
-
 const FAQ: React.FC = () => {
+  const { t } = useTranslation();
+
+  const FaqData = useMemo(
+    () => [
+      {
+        id: 1,
+        title: t('faq.faq1.title'),
+        subtitle: t('faq.faq1.text'),
+      },
+      {
+        id: 2,
+        title: t('faq.faq2.title'),
+        subtitle: t('faq.faq2.text'),
+      },
+      {
+        id: 3,
+        title: t('faq.faq3.title'),
+        subtitle: t('faq.faq3.text'),
+      },
+      {
+        id: 4,
+        title: t('faq.faq4.title'),
+        subtitle: t('faq.faq4.text'),
+      },
+      {
+        id: 5,
+        title: t('faq.faq5.title'),
+        subtitle: t('faq.faq5.text'),
+      },
+      {
+        id: 6,
+        title: t('faq.faq6.title'),
+        subtitle: t('faq.faq6.text'),
+      },
+      {
+        id: 7,
+        title: t('faq.faq7.title'),
+        subtitle: t('faq.faq7.text'),
+      },
+    ],
+    [t],
+  );
+
   return (
     <section className={s.section} id="faq">
       <div className={s.section_inner}>

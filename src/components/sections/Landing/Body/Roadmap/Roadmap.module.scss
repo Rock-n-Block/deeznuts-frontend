@@ -1,25 +1,19 @@
 @import '../../../../../styles/mixins/media.scss';
 
 .section {
-  background: url('../../../../../assets/img/sections/landing/body/roadmap.png') center 0 no-repeat,
-    #000000;
+  position: relative;
+  margin: 0 auto;
+  padding: 50px 15px;
+  text-align: center;
+  background: url('../../../../../assets/img/sections/landing/body/roadmap.png'), #000;
+  background-position: top center;
   -webkit-background-size: 100% 60%;
   -moz-background-size: 100% 60%;
   -o-background-size: 100% 60%;
   background-size: 100% 60%;
-  background-position: top center;
-  text-align: center;
-  padding-bottom: 200px;
-  padding: 0 15px;
-  margin: 0 auto;
-  padding: 105px 170px 0;
-  position: relative;
   @include b(mobile) {
-    padding-top: 0px;
   }
-  @include b(tablet) {
-    padding-bottom: 50px;
-  }
+
   &_body {
     display: flex;
     justify-content: center;
@@ -28,77 +22,116 @@
 }
 
 .title {
-  background: #000000;
+  margin: 0 auto;
   box-sizing: border-box;
-  border: 4px solid #ff1616;
-  border-radius: 12px;
-  padding: 17px 30px;
+  width: fit-content;
+  letter-spacing: 4px;
+  font-family: 'TL';
   font-size: 50px;
   line-height: 58px;
-  font-family: 'TL';
-  width: fit-content;
-  margin: 234px auto 0;
+  margin: 100px auto;
+  text-transform: capitalize;
+
+  //background: #000;
+  //border: 4px solid #ff1616;
+  //border-radius: 12px;
 
   @include b(tablet) {
-    font-size: 50px;
+    margin-top: 60px;
     margin-bottom: 20px;
+
+    font-size: 50px;
+  }
+
+  @include b(tablet) {
+    font-size: 25px;
+    line-height: 29px;
   }
 }
 
 .subtitle {
   font-size: 18px;
   line-height: 32px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .stages {
   margin: 0 auto;
-  padding-top: 30px;
+  width: 90%;
 }
 
 .stage {
-  background: linear-gradient(180deg, #280808 0%, #4e0b0b 100%);
-  border-radius: 12px;
-  padding: 12px 18px;
+  //padding: 12px 18px;
   display: flex;
   align-items: center;
+  background-color: #666;
+  border-radius: 12px;
+  @include b(tablet) {
+    flex-wrap: wrap;
+    background-color: transparent;
+  }
   .percentage {
-    background: #000000;
-    border: 2px solid #acacac;
-    box-sizing: border-box;
-    border-radius: 12px;
-    padding: 17px 30px;
-    font-family: 'TL', sans-serif;
-    font-size: 16px;
-    line-height: 18px;
     margin-right: 30px;
-  }
-  .description {
+    padding: 25px 30px;
+    min-width: 180px;
+    box-sizing: border-box;
     font-family: 'TL', sans-serif;
-    font-size: 22px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 18px;
+    background-color: #f7b42c;
+    background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+    border-radius: 12px;
+    @include b(tablet) {
+      width: 30px;
+      margin: auto;
+      font-size: 16px;
+      padding: 10px;
+    }
   }
+
+  .description {
+    font-family: 'MSR', sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    padding: 0px 15px;
+    @include b(tablet) {
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
   & + & {
     margin-top: 25px;
   }
-  &.oddStage {
-    background: linear-gradient(180deg, #000000 0%, rgba(50, 50, 50, 0.85) 100%);
-    border: 2px solid #676767;
-    box-sizing: border-box;
-    box-shadow: inset 0px 0px 7px 0.5px #787878;
-    border-radius: 12px;
 
-    .percentage {
-      background: #000000;
-      border: 2px solid #db5555;
-      box-sizing: border-box;
-      box-shadow: inset 0px 0px 7px 0.5px #ff1616;
-      border-radius: 12px;
+  &.oddStage {
+    background-color: #999;
+    box-sizing: border-box;
+    //border: 2px solid #676767;
+    border-radius: 12px;
+    //box-shadow: inset 0 0 7px 0.5px #787878;
+    @include b(tablet) {
+      background-color: transparent;
     }
+    .percentage {
+      box-sizing: border-box;
+      background: #db5555;
+      border: 2px solid #db5555;
+      border-radius: 12px;
+      min-width: 180px;
+      //box-shadow: inset 0 0 7px 0.5px #ff1616;
+    }
+
     .description {
       font-family: 'MSR', sans-serif;
       font-size: 18px;
       text-align: left;
+      @include b(tablet) {
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+      }
     }
   }
 }

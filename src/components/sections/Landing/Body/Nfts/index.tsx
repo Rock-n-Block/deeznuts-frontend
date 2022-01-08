@@ -1,9 +1,10 @@
-import bunny from '../../../../../assets/img/sections/landing/body/bunny1.png';
+import { useState } from 'react';
 import cn from 'classnames';
 
-import s from './Nfts.module.scss';
+// import bunny from '../../../../../assets/img/sections/landing/body/bunny1.png';
 import Button from '../../../../atoms/Button';
-import { useState } from 'react';
+
+import s from './Nfts.module.scss';
 
 const pages = ['08', '09', '10', '11', '12', '13', '14', '15'];
 
@@ -15,7 +16,7 @@ const Nfts: React.FC = () => {
   };
   return (
     <section className={s.section}>
-      <div className={s.nfts}>
+      {/* <div className={s.nfts}>
         {[1, 2, 3].map((item: number) => (
           <div className={s.nft}>
             <div className={s.head}>
@@ -25,6 +26,18 @@ const Nfts: React.FC = () => {
           </div>
         ))}
       </div>
+      <div className={s.nftsMobile}>
+        <SimpleSlider classNameProp={s.slide}>
+          {[1, 2, 3].map((item: number) => (
+            <div className={s.nft}>
+              <div className={s.head}>
+                <p className={s.number}>NFT #{item}</p>
+              </div>
+              <img src={bunny} alt="bunny" className={s.image} />
+            </div>
+          ))}
+        </SimpleSlider>
+      </div> */}
       <div className={s.pages}>
         {pages.map((page: string) => (
           <Button
