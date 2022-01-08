@@ -1,6 +1,6 @@
-import s from './Roadmap.module.scss';
-
 import deeznut from '../../../../../assets/img/sections/landing/stages/deeznut.png';
+
+import s from './Roadmap.module.scss';
 
 const Roadmap: React.FC = () => {
   return (
