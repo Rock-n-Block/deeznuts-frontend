@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import Button from '../../../../atoms/Button';
 
 import s from './FAQ.module.scss';
